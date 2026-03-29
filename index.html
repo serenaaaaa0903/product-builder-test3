@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+    <!-- [AdSense] -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7368824007574490"
      crossorigin="anonymous"></script>
     <link rel="ads" href="/ads.txt">
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>우리집 안전 보안관 - 다국어 지원 시스템</title>
+    <title>우리집 안전 보안관 - 최신 보이스피싱 예방 교육 시스템</title>
+    
+    <!-- [SEO 메타 태그] -->
+    <meta name="description" content="우리집 안전 보안관은 사랑하는 가족을 위해 매달 업데이트되는 최신 보이스피싱 및 신종 사기 트렌드를 분석하고 맞춤형 예방 교육을 제공하는 공익 서비스입니다.">
+    <meta name="keywords" content="보이스피싱 예방, 사기 예방 교육, 로맨스 스캠, AI 사기, 안전 보안관, 가족 보안">
+    <meta property="og:title" content="우리집 안전 보안관 - 가족을 위한 사기 예방 솔루션">
+    <meta property="og:description" content="가족에게 따뜻한 메시지와 함께 안전을 선물하세요.">
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <style>
@@ -58,14 +67,11 @@
         }
         .lang-btn.active { background: var(--accent); color: #000; font-weight: bold; border-color: var(--accent); }
 
-        header {
-            background: transparent; color: white; padding: 60px 20px;
-            text-align: center; position: relative;
-        }
+        header { background: transparent; color: white; padding: 60px 20px; text-align: center; position: relative; }
         header h1 { font-size: 2.2rem; margin: 0; letter-spacing: -1px; text-shadow: 0 4px 10px rgba(0,0,0,0.3); }
         header p { opacity: 0.9; font-size: 1.1rem; margin-top: 12px; }
 
-        .container { max-width: 650px; margin: 0 auto; padding: 20px; position: relative; z-index: 10; }
+        .container { max-width: 650px; margin: 0 auto; padding: 20px; position: relative; z-index: 10; min-height: 80vh; }
 
         section { 
             background: rgba(255, 255, 255, 0.98); 
@@ -90,52 +96,27 @@
             100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
         }
 
-        .form-group { margin-bottom: 25px; position: relative; }
-        label { display: flex; align-items: center; justify-content: space-between; font-weight: 600; margin-bottom: 12px; color: #34495e; font-size: 0.95rem; }
-        input, textarea, select { 
-            width: 100%; padding: 16px; border: 1.5px solid #e2e8f0; border-radius: 16px; 
-            box-sizing: border-box; font-size: 1rem; transition: 0.3s; background: #f8fafc;
-        }
-        
         .btn-main { 
             width: 100%; padding: 22px; background: var(--primary); color: white; border: none; 
             border-radius: 18px; font-size: 1.25rem; font-weight: 700; cursor: pointer; 
             margin-top: 15px; transition: 0.3s; box-shadow: 0 6px 20px rgba(0,0,0,0.15);
         }
-        .btn-main:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
         
         #intro-section, #setup-section, #edu-section { display: none; }
         
-        #intro-section {
-            background: linear-gradient(180deg, #ffffff 0%, #f9f9f9 100%);
-            border: none;
-            overflow: hidden;
-        }
+        /* [광고 페이지 스타일] */
         .intro-hero-img {
             width: 100%; height: 180px;
             background: url('https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&q=80&w=600') center/cover;
             border-radius: 20px; margin-bottom: 25px;
-            display: flex; justify-content: center; align-items: center;
-            position: relative;
+            display: flex; justify-content: center; align-items: center; position: relative;
         }
         .intro-hero-img::after {
             content: "FAMILY SAFETY";
             position: absolute; color: white; font-weight: 900; font-size: 1.5rem;
             letter-spacing: 5px; text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
-        .intro-icon-group { display: flex; justify-content: center; gap: 30px; margin: 25px 0; }
-        .intro-icon-group span { font-size: 2.8rem; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1)); transition: 0.3s; }
         
-        .intro-feature-list { text-align: left; margin: 25px 0; padding: 0; list-style: none; }
-        .intro-feature-list li { 
-            margin-bottom: 12px; padding: 15px 15px 15px 45px; position: relative; 
-            font-size: 1rem; background: rgba(27,94,32,0.03); border-radius: 12px;
-            border: 1px solid rgba(27,94,32,0.05);
-        }
-        .intro-feature-list li::before { 
-            content: "🛡️"; position: absolute; left: 15px; font-size: 1.1rem;
-        }
-
         .edu-card { 
             background: white; border-radius: 20px; padding: 25px; margin-bottom: 25px; 
             border: 1px solid #edf2f7; position: relative; border-left: 10px solid #cbd5e0; 
@@ -143,66 +124,53 @@
         }
         .edu-card.done { border-left-color: var(--primary); background: #f0fdf4 !important; border-color: #bbf7d0; transform: translateY(-5px); }
         
-        .edu-date { font-size: 0.85rem; color: #718096; margin-bottom: 8px; font-weight: 600; }
-        .edu-btn { 
-            display: block; margin-top: 18px; padding: 16px; background: #2d3748; color: white; 
-            text-align: center; text-decoration: none; border-radius: 14px; font-weight: 600; 
-            border: none; width: 100%; cursor: pointer; transition: 0.3s;
-        }
-        .done .edu-btn { background: var(--primary); }
-
-        .quiz-container { margin-top: 15px; text-align: left; }
         .quiz-option { 
             display: block; width: 100%; padding: 14px; margin-bottom: 10px; 
             border: 1.5px solid #e2e8f0; border-radius: 12px; background: white;
-            cursor: pointer; transition: 0.2s; font-size: 0.95rem; text-align: left; font-weight: 500;
+            cursor: pointer; transition: 0.2s; font-size: 0.95rem; text-align: left;
         }
-        .quiz-option:hover { background: #f8fafc; border-color: #cbd5e0; }
         .quiz-option.correct { background: #dcfce7 !important; border-color: #22c55e !important; color: #166534; font-weight: 700; }
         .quiz-option.wrong { background: #fee2e2 !important; border-color: #ef4444 !important; }
 
-        #cert-modal {
+        #cert-modal, #legal-modal {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.85); z-index: 1000; justify-content: center; align-items: center; padding: 20px;
+            background: rgba(0,0,0,0.85); z-index: 1000; justify-content: center; align-items: center; padding: 10px;
             backdrop-filter: blur(10px);
         }
-        #cert-content {
+        #cert-content, #legal-content {
             background: white; width: 95%; max-width: 500px; padding: 30px 20px; border: 8px double var(--accent);
             text-align: center; position: relative; box-shadow: 0 30px 60px rgba(0,0,0,0.5);
             animation: modalUp 0.7s cubic-bezier(0.23, 1, 0.32, 1);
-            background-image: radial-gradient(circle at 2px 2px, #f7f7f7 1px, transparent 0);
-            background-size: 30px 30px;
             max-height: 90vh; overflow-y: auto;
         }
-        @keyframes modalUp { from { transform: translateY(80px) scale(0.9); opacity: 0; } to { transform: translateY(0) scale(1); opacity: 1; } }
         
-        .cert-title { font-size: 2.2rem; color: #b8860b; font-weight: 800; margin-bottom: 20px; letter-spacing: 4px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
-        .cert-name { font-size: 1.4rem; font-weight: 700; margin-bottom: 25px; border-bottom: 2px solid #b8860b; display: inline-block; padding: 0 20px; color: #1a202c; }
-        .cert-body { font-size: 1rem; line-height: 1.8; margin-bottom: 30px; word-break: keep-all; color: #4a5568; }
-        .cert-msg { background: #fffaf0; padding: 15px; border-radius: 12px; border: 1px solid #feebc8; margin-bottom: 30px; font-style: italic; color: #744210; font-weight: 500; font-size: 0.95rem; }
-        .cert-footer { font-size: 1.2rem; font-weight: 800; color: #2d3748; }
-        .cert-date { font-size: 0.9rem; color: #a0aec0; margin-top: 15px; }
+        /* [푸터 스타일 - 애드센스 필수] */
+        footer {
+            margin-top: 50px; padding: 30px 20px; text-align: center; color: rgba(255,255,255,0.6);
+            font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .footer-links { margin-bottom: 15px; }
+        .footer-links span { cursor: pointer; margin: 0 10px; text-decoration: underline; }
+        .footer-links span:hover { color: var(--accent); }
 
-        .cert-buttons { display: flex; justify-content: center; gap: 10px; margin-top: 25px; }
-        .btn-close, .btn-save { padding: 12px 20px; border: none; border-radius: 10px; cursor: pointer; font-weight: 600; transition: 0.3s; flex: 1; font-size: 0.9rem; }
-        .btn-close { background: #e2e8f0; color: #4a5568; }
-        .btn-save { background: var(--primary); color: white; }
-
-        .btn-tts {
-            background: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; padding: 10px 16px; border-radius: 10px;
-            font-size: 0.85rem; cursor: pointer; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;
-            font-weight: 600;
+        /* [쿠키 동의 배너] */
+        #cookie-banner {
+            position: fixed; bottom: 0; left: 0; width: 100%; background: #2c3e50;
+            color: white; padding: 15px; text-align: center; z-index: 2000; display: none;
+            font-size: 0.85rem;
+        }
+        #cookie-banner button {
+            background: var(--accent); border: none; padding: 5px 15px; border-radius: 5px;
+            margin-left: 15px; cursor: pointer; font-weight: bold;
         }
 
-        /* [음성 녹음 버튼 스타일] */
         .btn-voice-record {
             background: #fff; color: #e53935; border: 1px solid #ef9a9a;
             padding: 4px 10px; border-radius: 8px; font-size: 0.75rem;
             cursor: pointer; display: flex; align-items: center; gap: 5px;
             transition: 0.3s; font-weight: 600;
         }
-        .btn-voice-record.recording { background: #ffebee; animation: blinkRecord 1.5s infinite; border-color: #e53935; }
-        @keyframes blinkRecord { 50% { opacity: 0.6; } }
+        .btn-voice-record.recording { background: #ffebee; animation: blinkRecord 1.5s infinite; }
     </style>
 </head>
 <body>
@@ -224,15 +192,15 @@
     <section id="intro-section">
         <div class="intro-hero-img"></div>
         <h2 id="txt-intro-h2" style="color: var(--primary); text-align: center; font-size: 1.6rem; word-break: keep-all; margin-top: 0;">우리집을 보이스피싱과 신종 사기로부터 안전하게 지키세요!</h2>
-        <div class="intro-icon-group"><span>👨‍👩‍👧‍👦</span> <span>🛡️</span> <span>📱</span></div>
+        <div class="intro-icon-group" style="display:flex; justify-content:center; gap:20px; margin:30px 0; font-size:2.5rem;"><span>👨‍👩‍👧‍👦</span> <span>🛡️</span> <span>📱</span></div>
         <p id="txt-intro-p1" style="text-align: center; color: #4a5568; font-size: 1.1rem; line-height: 1.8; word-break: keep-all;">
             부모님, 배우자, 자녀 등 사랑하는 사람들에게 따뜻한 메시지와 함께 최신 보이스피싱 예방 교육을 선물할 수 있습니다.
         </p>
-        <ul class="intro-feature-list">
-            <li id="li-f1">매달 업데이트되는 신종 사기 트렌드 분석</li>
-            <li id="li-f2">학습 효과를 높이는 맞춤형 퀴즈 시스템</li>
-            <li id="li-f3">교육 이수 후 발급되는 정식 안전 보안관 상장</li>
-            <li id="li-f4">누구나 쉽게 듣는 AI 읽어주기(TTS) 기능</li>
+        <ul id="intro-feature-list" style="text-align:left; margin:25px 0; padding:0; list-style:none;">
+            <li id="li-f1" style="margin-bottom:12px; padding:15px 15px 15px 45px; position:relative; background:rgba(27,94,32,0.03); border-radius:12px; border:1px solid rgba(27,94,32,0.05);">매달 업데이트되는 신종 사기 트렌드 분석</li>
+            <li id="li-f2" style="margin-bottom:12px; padding:15px 15px 15px 45px; position:relative; background:rgba(27,94,32,0.03); border-radius:12px; border:1px solid rgba(27,94,32,0.05);">학습 효과를 높이는 맞춤형 퀴즈 시스템</li>
+            <li id="li-f3" style="margin-bottom:12px; padding:15px 15px 15px 45px; position:relative; background:rgba(27,94,32,0.03); border-radius:12px; border:1px solid rgba(27,94,32,0.05);">교육 이수 후 발급되는 정식 안전 보안관 상장</li>
+            <li id="li-f4" style="margin-bottom:12px; padding:15px 15px 15px 45px; position:relative; background:rgba(27,94,32,0.03); border-radius:12px; border:1px solid rgba(27,94,32,0.05);">누구나 쉽게 듣는 AI 읽어주기(TTS) 기능</li>
         </ul>
         <button class="btn-main" id="txt-btn-start" onclick="goSetup()">가족 안전 지키기 시작하기</button>
         <p id="txt-revenue-ad" style="text-align: center; font-size: 0.85rem; color: #7f8c8d; margin-top: 20px; font-weight: 500;">
@@ -256,7 +224,7 @@
             <input type="text" id="p_name" placeholder="성함을 입력하세요">
         </div>
         <div class="form-group">
-            <label>
+            <label style="display:flex; justify-content:space-between; align-items:center;">
                 <span id="txt-label-msg">사랑의 메시지</span>
                 <button id="btn-record" class="btn-voice-record" onclick="toggleSpeech()">🎙️ <span id="txt-btn-record">음성으로 입력</span></button>
             </label>
@@ -288,6 +256,25 @@
     </section>
 </div>
 
+<!-- 필수 푸터 -->
+<footer>
+    <div class="footer-links">
+        <span onclick="showLegal('privacy')" id="footer-privacy">개인정보처리방침</span> | 
+        <span onclick="showLegal('terms')" id="footer-terms">이용약관</span> | 
+        <span onclick="showLegal('contact')" id="footer-contact">문의하기</span>
+    </div>
+    <div id="footer-copy">© 2026 우리집 안전 보안관. All Rights Reserved.</div>
+</footer>
+
+<!-- 법적 문서 모달 -->
+<div id="legal-modal">
+    <div id="legal-content">
+        <h3 id="legal-title"></h3>
+        <div id="legal-body" style="text-align: left; font-size: 0.85rem; color: #555; height: 300px; overflow-y: auto; border: 1px solid #eee; padding: 15px; margin: 20px 0; line-height:1.8;"></div>
+        <button class="btn-main" onclick="closeLegal()" style="padding: 10px; font-size: 1rem;">닫기</button>
+    </div>
+</div>
+
 <div id="cert-modal">
     <div id="cert-content">
         <div class="cert-title" id="cert-ui-title">수 료 증</div>
@@ -301,6 +288,11 @@
             <button class="btn-close" id="btn-close-ui" onclick="closeCert()">닫기</button>
         </div>
     </div>
+</div>
+
+<div id="cookie-banner">
+    <span id="cookie-txt">이 사이트는 서비스 제공 및 분석을 위해 쿠키를 사용합니다.</span>
+    <button onclick="acceptCookies()" id="cookie-btn">동의함</button>
 </div>
 
 <script>
@@ -333,7 +325,14 @@
             setupPreview: "메시지 미리보기",
             quizCorrect: "정답입니다! 보안관님, 훌륭해요.",
             quizWrong: "틀렸습니다. 다시 한번 생각해보세요!",
-            solveBtn: "정답 확인",
+            footerPrivacy: "개인정보처리방침", footerTerms: "이용약관", footerContact: "문의하기",
+            cookieTxt: "이 사이트는 서비스 제공 및 분석을 위해 쿠키를 사용합니다.", cookieBtn: "동의함",
+            legalPrivacyTitle: "개인정보처리방침",
+            legalPrivacyBody: "본 서비스는 사용자가 입력한 이름과 메시지를 서버에 저장하지 않습니다. 모든 데이터는 URL 파라미터를 통해 브라우저 상에서만 처리됩니다. 구글 애드센스(AdSense)는 광고 제공 및 트래픽 분석을 위해 쿠키를 사용하며, 익명의 사용자 정보를 수집할 수 있습니다.",
+            legalTermsTitle: "이용약관",
+            legalTermsBody: "1. 본 서비스는 정보 제공 및 교육을 목적으로 하며, 실제 사기 피해에 대한 법적 책임은 지지 않습니다. 2. 사용자는 공익적 목적으로만 본 서비스를 이용해야 합니다. 3. 발생한 광고 수익의 일부는 자선 단체에 기부됩니다.",
+            legalContactTitle: "문의하기",
+            legalContactBody: "문의사항이나 피드백이 있으시면 아래 이메일로 연락주세요.\nEmail: support@familysafety.test",
             btnRecord: "음성으로 입력",
             btnRecording: "듣고 있습니다..."
         },
@@ -365,27 +364,34 @@
             setupPreview: "Message Preview",
             quizCorrect: "Correct! You are a great sheriff.",
             quizWrong: "Wrong answer. Please try again!",
-            solveBtn: "Check Answer",
+            footerPrivacy: "Privacy Policy", footerTerms: "Terms", footerContact: "Contact",
+            cookieTxt: "This site uses cookies for analytics and ads.", cookieBtn: "Accept",
+            legalPrivacyTitle: "Privacy Policy",
+            legalPrivacyBody: "We do not store personal data. Google AdSense may use cookies for personalized ads and traffic analysis.",
+            legalTermsTitle: "Terms of Service",
+            legalTermsBody: "Educational purpose only. We are not liable for individual fraud incidents. 10% of revenue goes to charity.",
+            legalContactTitle: "Contact Us",
+            legalContactBody: "Email: support@familysafety.test",
             btnRecord: "Voice Input",
             btnRecording: "Listening..."
         },
         ja: {
             title: "🛡️ 我が家の安全保安官", subtitle: "大切な家族のための防犯 education",
-            introH2: "我が家를 振り込め詐欺や新型詐欺から守りましょう！",
-            introP1: "ご両親や配偶者、お子様など、大切な人に温かいメッセージと共に最新の振り込め詐欺予防教育를贈ることができます。",
-            liF1: "毎월 更新되는 新型詐欺 트렌드 分析", liF2: "学習効果を高めるカスタ마이즈 퀴즈", liF3: "修了後に発行される公式な安全保安官の賞状", liF4: "誰でも簡単に聞けるAI読み上げ(TTS)機能",
+            introH2: "我が家を振り込め詐欺や新型詐欺から守りましょう！",
+            introP1: "ご両親や配偶者、お子様など、大切な人に温かいメッセージと共に最新の振り込め詐欺予防教育を贈ることができます。",
+            liF1: "毎月更新される新型詐欺トレンドの分析", liF2: "学習効果を高めるカスタマイズクイズ", liF3: "修了後に発行される公式な安全保安官の賞状", liF4: "誰でも簡単に聞けるAI読み上げ(TTS)機能",
             btnStart: "家族の安全を守り始める", 
             revenueAd: "本サービスは広告手数料によって運営されており, 収益の10％は不遇な隣人に寄付される予定です.",
-            setupH2: "1. 교육대상 설정", labelTarget: "誰に送りますか？", optParent: "ご両親へ", optChild: "お子様へ", optSpouse: "配偶者へ",
-            labelName: "お名前", labelMsg: "愛のメッセージ", btnGenerate: "교육 링크를 생성",
+            setupH2: "1. 教育対象の設定", labelTarget: "誰に送りますか？", optParent: "ご両親へ", optChild: "お子様へ", optSpouse: "配偶者へ",
+            labelName: "お名前", labelMsg: "愛のメッセージ", btnGenerate: "教育링크를 작성",
             placeholderName: "名前を入力してください", placeholderMsg: "詐欺に遭わず, 幸せに暮らそう!",
             linkReady: "링크가 준비되었습니다!", btnCopy: "コピーして送信",
             linkInstruct: "링크를 클릭한 후, 생성된 URL을 이메일 등으로 전송해 주세요.",
             eduWelcome: "安全保安官様, ようこそ!", 
-            eduDesc: "本교육은 매달 신종사기 트랜드를 분석하고 교육을 목적으로 하고 있습니다. 以下の교육을 완료해 주세요.", 
+            eduDesc: "本教育は毎月の新型詐欺トレンドを分析し, 教育することを目的としています. 以下の教育を完了してください.", 
             progress: "進捗",
             certTitle: "修 了 証", 
-            certBody: "上記の安全保安官은, 家族가丹精込めて準備した防犯教育課程을誠実に修了したため, 本証을授与します.",
+            certBody: "上記の安全保安官は, 家族が丹精込めて準備した防犯教育課程を誠実に修了したため, 本証を授与します.",
             certFooter: "我が家の安全保安官本部",
             certSuffix: "安全保安官様",
             eduBtn: "内容を見る", alertLink: "링크를 복사했습니다!",
@@ -396,8 +402,15 @@
             btnSave: "画像を保存", btnClose: "閉じる",
             setupPreview: "メッセージプレビュー",
             quizCorrect: "正解です! 保安官様, 素晴らしいです.",
-            quizWrong: "不正解입니다. もう一度考えてみましょう!",
-            solveBtn: "正解を確認",
+            quizWrong: "不正解です. もう一度考えてみましょう!",
+            footerPrivacy: "プライバシーポリシー", footerTerms: "利用規約", footerContact: "お問い合わせ",
+            cookieTxt: "当サイトはクッキーを使用しています.", cookieBtn: "同意する",
+            legalPrivacyTitle: "プライバシーポリシー",
+            legalPrivacyBody: "個人情報は保存されません。Googleは広告のためにクッキーを使用する場合があります.",
+            legalTermsTitle: "利用規約",
+            legalTermsBody: "教育目的の情報提供であり, 被害に対する法的責任は負いかねます. 収益の10%は寄付されます.",
+            legalContactTitle: "お問い合わせ",
+            legalContactBody: "メール: support@familysafety.test",
             btnRecord: "音声入力",
             btnRecording: "聴いています..."
         }
@@ -415,7 +428,7 @@
             { id: 3, title: "[YouTube] THESE 5 Scams Are EXPLODING in 2026", url: "https://www.youtube.com/results?search_query=Rossen+Reports+Scams+2026", date: "2026.01.05" }
         ],
         ja: [
-            { id: 1, title: "[分析] 2026년 日本の詐기에 트렌드", content: "2026년 일본에서는 SNS를 통한 투자 권유와 로맨스 스캠이 고도로 융합된 수법이 급증하고 있습니다. 범인은 긴 시간을 들여 신뢰 관계를 쌓고, 교묘한 가짜 투자 플랫폼으로 유도합니다.", date: "2026.01.01" },
+            { id: 1, title: "[分析] 2026년 日本の詐欺トレンド", content: "2026年の日本では, SNSを通じた投資勧誘とロマンス詐欺が高度に融合した手法が急増しています. 犯人は長い時間をかけて信頼関係를 구축하고, 교묘한 가짜 투자 플랫폼으로 유도합니다.", date: "2026.01.01" },
             { id: 2, title: "[クイズ] SNS型投資詐欺の正しい対処は？", quiz: { question: "『絶対に儲かる』という投資 정보를 SNSで知り合った外国人から教えられたら？", options: ["すぐに振り込む", "詐欺を疑い, 블록 또는 경찰에 相談する", "一度だけ試してみる"], answer: 1 }, date: "2024.03.12" },
             { id: 3, title: "[YouTube] あなたに会いに日本に行きます (投資詐欺)", url: "https://www.youtube.com/results?search_query=ロマンス詐欺+2400万円+被害", date: "2024.02.20" }
         ]
@@ -424,52 +437,28 @@
     let currentLang = 'ko';
     let recognition;
 
-    // 음성 인식 초기화
     if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
         const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
         recognition = new SpeechRecognition();
         recognition.continuous = false;
-        recognition.interimResults = false;
-
-        recognition.onresult = (event) => {
-            const text = event.results[0][0].transcript;
-            document.getElementById('p_msg').value += text;
-            stopSpeechUI();
-        };
-
-        recognition.onerror = () => stopSpeechUI();
-        recognition.onend = () => stopSpeechUI();
+        recognition.onresult = (e) => { document.getElementById('p_msg').value += e.results[0][0].transcript; stopSpeechUI(); };
+        recognition.onerror = stopSpeechUI; recognition.onend = stopSpeechUI;
     }
 
     function toggleSpeech() {
-        if (!recognition) return alert("이 브라우저는 음성 인식을 지원하지 않습니다.");
+        if (!recognition) return alert("Browser not supported.");
         const btn = document.getElementById('btn-record');
-        if (btn.classList.contains('recording')) {
-            recognition.stop();
-        } else {
-            recognition.lang = langData[currentLang].ttsLang;
-            recognition.start();
-            btn.classList.add('recording');
-            document.getElementById('txt-btn-record').innerText = langData[currentLang].btnRecording;
-        }
+        if (btn.classList.contains('recording')) { recognition.stop(); } 
+        else { recognition.lang = langData[currentLang].ttsLang; recognition.start(); btn.classList.add('recording'); document.getElementById('txt-btn-record').innerText = langData[currentLang].btnRecording; }
     }
-
-    function stopSpeechUI() {
-        const btn = document.getElementById('btn-record');
-        btn.classList.remove('recording');
-        document.getElementById('txt-btn-record').innerText = langData[currentLang].btnRecord;
-    }
+    function stopSpeechUI() { const btn = document.getElementById('btn-record'); btn.classList.remove('recording'); document.getElementById('txt-btn-record').innerText = langData[currentLang].btnRecord; }
 
     function initBackground() {
         const bg = document.getElementById('bg-badges');
         const badgeSvg = `<svg viewBox="0 0 24 24" width="80" height="80" fill="currentColor"><path d="M12 1L9 9H1L7 14L4 22L12 17L20 22L17 14L23 9H15L12 1Z"/></svg>`;
         for(let i=0; i<12; i++) {
-            const div = document.createElement('div');
-            div.className = 'bg-badge';
-            div.innerHTML = badgeSvg;
-            div.style.left = Math.random() * 100 + 'vw';
-            div.style.top = Math.random() * 100 + 'vh';
-            div.style.animationDelay = (Math.random() * 10) + 's';
+            const div = document.createElement('div'); div.className = 'bg-badge'; div.innerHTML = badgeSvg;
+            div.style.left = Math.random()*100+'vw'; div.style.top = Math.random()*100+'vh'; div.style.animationDelay = Math.random()*10+'s';
             bg.appendChild(div);
         }
     }
@@ -477,10 +466,10 @@
     function changeLang(lang) {
         currentLang = lang;
         document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-        const activeBtn = document.getElementById(`btn-${lang}`);
-        if(activeBtn) activeBtn.classList.add('active');
-
+        document.getElementById(`btn-${lang}`).classList.add('active');
         const d = langData[lang];
+        
+        // 주요 텍스트 교체
         document.getElementById('txt-title').innerText = d.title;
         document.getElementById('txt-subtitle').innerText = d.subtitle;
         document.getElementById('txt-intro-h2').innerText = d.introH2;
@@ -491,7 +480,6 @@
         document.getElementById('li-f4').innerText = d.liF4;
         document.getElementById('txt-btn-start').innerText = d.btnStart;
         document.getElementById('txt-revenue-ad').innerText = d.revenueAd;
-
         document.getElementById('txt-setup-h2').innerText = d.setupH2;
         document.getElementById('btn-setup-preview').innerText = d.setupPreview;
         document.getElementById('txt-label-target').innerText = d.labelTarget;
@@ -511,168 +499,91 @@
         document.getElementById('btn-save-ui').innerText = d.btnSave;
         document.getElementById('btn-close-ui').innerText = d.btnClose;
         document.getElementById('txt-btn-record').innerText = d.btnRecord;
+        document.getElementById('footer-privacy').innerText = d.footerPrivacy;
+        document.getElementById('footer-terms').innerText = d.footerTerms;
+        document.getElementById('footer-contact').innerText = d.footerContact;
+        document.getElementById('cookie-txt').innerText = d.cookieTxt;
+        document.getElementById('cookie-btn').innerText = d.cookieBtn;
 
         const name = new URLSearchParams(window.location.search).get('name') || "";
         document.getElementById('txt-edu-welcome').innerText = (name ? name : "") + d.eduWelcome;
-
         if(document.getElementById('edu-section').style.display === 'block') renderList();
     }
 
-    function goSetup() {
-        document.getElementById('intro-section').style.display = 'none';
-        document.getElementById('setup-section').style.display = 'block';
-        window.scrollTo(0, 0);
-    }
-
-    function previewOnSetup() {
-        const name = document.getElementById('p_name').value;
-        const msg = document.getElementById('p_msg').value;
-        if(!name || !msg) return alert(currentLang === 'ko' ? "이름과 메시지를 먼저 입력해주세요." : "Please enter name and message first.");
-        const d = langData[currentLang];
-        document.getElementById('cert-ui-title').innerText = d.certTitle;
-        document.getElementById('cert-ui-name').innerText = name;
-        document.getElementById('cert-ui-suffix').innerText = d.certSuffix;
-        document.getElementById('cert-ui-body').innerText = d.certBody;
-        document.getElementById('cert-ui-msg').innerText = msg;
-        document.getElementById('cert-ui-footer').innerText = d.certFooter;
-        document.getElementById('cert-ui-date').innerText = new Date().toLocaleDateString();
-        document.getElementById('cert-modal').style.display = 'flex';
+    function goSetup() { document.getElementById('intro-section').style.display = 'none'; document.getElementById('setup-section').style.display = 'block'; window.scrollTo(0,0); }
+    function previewOnSetup() { 
+        const name = document.getElementById('p_name').value; const msg = document.getElementById('p_msg').value;
+        if(!name || !msg) return alert(currentLang === 'ko' ? "이름과 메시지를 입력해주세요." : "Fields required.");
+        showFancyCert(name, msg);
     }
 
     function generateLink() {
-        const target = document.getElementById('target_type').value;
-        const name = document.getElementById('p_name').value;
-        const msg = document.getElementById('p_msg').value;
-        if(!name || !msg) return alert(currentLang === 'ko' ? "내용을 모두 입력해주세요." : "Fields are required.");
-        const url = `${window.location.href.split('?')[0]}?lang=${currentLang}&target=${target}&name=${encodeURIComponent(name)}&msg=${encodeURIComponent(msg)}`;
-        document.getElementById('final-url').innerText = url;
-        document.getElementById('link-display').style.display = 'block';
-    }
-
-    function copyUrl() {
-        navigator.clipboard.writeText(document.getElementById('final-url').innerText);
-        alert(langData[currentLang].alertLink);
+        const t = document.getElementById('target_type').value; const n = document.getElementById('p_name').value; const m = document.getElementById('p_msg').value;
+        if(!n || !m) return alert("Fields required");
+        const url = `${window.location.href.split('?')[0]}?lang=${currentLang}&target=${t}&name=${encodeURIComponent(n)}&msg=${encodeURIComponent(m)}`;
+        document.getElementById('final-url').innerText = url; document.getElementById('link-display').style.display = 'block';
     }
 
     function renderList() {
-        const list = document.getElementById('edu-list');
-        list.innerHTML = '';
-        const d = langData[currentLang];
-        const eduList = eduDataPerLang[currentLang];
+        const list = document.getElementById('edu-list'); list.innerHTML = '';
+        const d = langData[currentLang]; const eduList = eduDataPerLang[currentLang];
         eduList.forEach((item) => {
             const isDone = localStorage.getItem(`done_${item.id}`);
-            const div = document.createElement('div');
-            div.className = `edu-card ${isDone ? 'done' : ''}`;
-            if (item.content) { 
-                div.innerHTML = `
-                    <div class="edu-date">${item.date}</div>
-                    <span style="font-weight:bold; display:block; margin-bottom:10px;">${item.title}</span>
-                    <button class="btn-tts" onclick="speakText('${item.content.replace(/'/g, "\\'")}')">${d.readAloud}</button>
-                    <p style="font-size:0.95rem; color:#444; background:#f8fafc; padding:15px; border-radius:12px; border:1px solid #e2e8f0; margin-bottom:10px;">${item.content}</p>
-                    <button class="edu-btn" onclick="done(${item.id})">${isDone ? d.trendConfirm : d.eduBtn}</button>`;
-            } else if (item.quiz) { 
-                let optionsHtml = '';
-                item.quiz.options.forEach((opt, idx) => {
-                    optionsHtml += `<button class="quiz-option ${isDone && idx === item.quiz.answer ? 'correct' : ''}" onclick="checkQuiz(this, ${idx}, ${item.quiz.answer}, ${item.id})">${opt}</button>`;
-                });
-                div.innerHTML = `
-                    <div class="edu-date">${item.date}</div>
-                    <span style="font-weight:bold; display:block; margin-bottom:10px;">${item.title}</span>
-                    <div class="quiz-container">
-                        <p style="font-weight:600; font-size:0.95rem; margin-bottom:15px;">Q. ${item.quiz.question}</p>
-                        ${optionsHtml}
-                    </div>`;
-            } else { 
-                div.innerHTML = `
-                    <div class="edu-date">${item.date}</div>
-                    <span style="font-weight:bold;">${item.title}</span>
-                    <a href="${item.url}" target="_blank" class="edu-btn" onclick="done(${item.id})">${d.eduBtn}</a>`;
-            }
+            const div = document.createElement('div'); div.className = `edu-card ${isDone ? 'done' : ''}`;
+            if (item.content) { div.innerHTML = `<div class="edu-date">${item.date}</div><span style="font-weight:bold;">${item.title}</span><button class="btn-tts" onclick="speakText('${item.content.replace(/'/g, "\\'")}')">${d.readAloud}</button><p style="font-size:0.95rem; color:#444; background:#f8fafc; padding:15px; border-radius:12px;">${item.content}</p><button class="edu-btn" onclick="done(${item.id})">${isDone ? d.trendConfirm : d.eduBtn}</button>`; }
+            else if (item.quiz) { 
+                let opts = ''; item.quiz.options.forEach((o, i) => { opts += `<button class="quiz-option ${isDone && i === item.quiz.answer ? 'correct' : ''}" onclick="checkQuiz(this, ${i}, ${item.quiz.answer}, ${item.id})">${o}</button>`; });
+                div.innerHTML = `<div class="edu-date">${item.date}</div><span style="font-weight:bold;">${item.title}</span><div class="quiz-container"><p>Q. ${item.quiz.question}</p>${opts}</div>`;
+            } else { div.innerHTML = `<div class="edu-date">${item.date}</div><span style="font-weight:bold;">${item.title}</span><a href="${item.url}" target="_blank" class="edu-btn" onclick="done(${item.id})">${d.eduBtn}</a>`; }
             list.appendChild(div);
         });
         updateStatus();
     }
 
-    function checkQuiz(btn, selected, correct, id) {
-        if(localStorage.getItem(`done_${id}`)) return;
-        if(selected === correct) {
-            btn.classList.add('correct'); alert(langData[currentLang].quizCorrect); done(id);
-        } else {
-            btn.classList.add('wrong'); alert(langData[currentLang].quizWrong);
-            setTimeout(() => btn.classList.remove('wrong'), 500);
-        }
-    }
-
-    function speakText(text) {
-        window.speechSynthesis.cancel();
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = langData[currentLang].ttsLang;
-        utterance.pitch = 1.1; utterance.rate = 0.95;
-        window.speechSynthesis.speak(utterance);
-    }
-
-    function done(id) {
-        localStorage.setItem(`done_${id}`, 'true');
-        setTimeout(renderList, 800);
-    }
-
+    function checkQuiz(btn, s, c, id) { if(localStorage.getItem(`done_${id}`)) return; if(s === c) { btn.classList.add('correct'); alert(langData[currentLang].quizCorrect); done(id); } else { btn.classList.add('wrong'); alert(langData[currentLang].quizWrong); setTimeout(()=>btn.classList.remove('wrong'),500); } }
+    function speakText(t) { window.speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(t); u.lang = langData[currentLang].ttsLang; u.pitch = 1.1; window.speechSynthesis.speak(u); }
+    function done(id) { localStorage.setItem(`done_${id}`, 'true'); setTimeout(renderList, 800); }
     function updateStatus() {
-        let count = 0;
-        const eduList = eduDataPerLang[currentLang];
-        eduList.forEach(i => { if(localStorage.getItem(`done_${i.id}`)) count++; });
-        const total = eduList.length;
-        document.getElementById('progress-fill').style.width = (count/total*100) + '%';
-        document.getElementById('txt-progress').innerText = `${langData[currentLang].progress}: ${count} / ${total}`;
-        if(count >= total) document.getElementById('completion-buttons').style.display = 'flex';
+        let count = 0; eduDataPerLang[currentLang].forEach(i => { if(localStorage.getItem(`done_${i.id}`)) count++; });
+        document.getElementById('progress-fill').style.width = (count/3*100) + '%';
+        document.getElementById('txt-progress').innerText = `${langData[currentLang].progress}: ${count} / 3`;
+        if(count >= 3) document.getElementById('completion-buttons').style.display = 'flex';
     }
 
-    function showFancyCert() {
+    function showFancyCert(n, m) {
         const params = new URLSearchParams(window.location.search);
+        const name = n || params.get('name'); const msg = m || params.get('msg');
         const d = langData[currentLang];
         document.getElementById('cert-ui-title').innerText = d.certTitle;
-        document.getElementById('cert-ui-name').innerText = params.get('name') || "";
+        document.getElementById('cert-ui-name').innerText = name || "";
         document.getElementById('cert-ui-suffix').innerText = d.certSuffix;
         document.getElementById('cert-ui-body').innerText = d.certBody;
-        document.getElementById('cert-ui-msg').innerText = params.get('msg') || "";
+        document.getElementById('cert-ui-msg').innerText = msg || "";
         document.getElementById('cert-ui-footer').innerText = d.certFooter;
         document.getElementById('cert-ui-date').innerText = new Date().toLocaleDateString();
         document.getElementById('cert-modal').style.display = 'flex';
     }
-
-    async function saveCertAsImage() {
-        const content = document.getElementById('cert-content');
-        const buttons = document.querySelector('.cert-buttons');
-        buttons.style.visibility = 'hidden'; 
-        try {
-            const canvas = await html2canvas(content, { scale: 3, backgroundColor: "#ffffff", useCORS: true });
-            canvas.toBlob((blob) => {
-                const url = window.URL.createObjectURL(blob);
-                const link = document.createElement('a');
-                link.href = url; link.download = `Award.png`; link.click();
-                window.URL.revokeObjectURL(url);
-            }, 'image/png');
-        } catch (e) { alert("Error"); } finally { buttons.style.visibility = 'visible'; }
-    }
-
     function closeCert() { document.getElementById('cert-modal').style.display = 'none'; }
+
+    function showLegal(type) {
+        const d = langData[currentLang];
+        document.getElementById('legal-title').innerText = d[`legal${type.charAt(0).toUpperCase()+type.slice(1)}Title`];
+        document.getElementById('legal-body').innerText = d[`legal${type.charAt(0).toUpperCase()+type.slice(1)}Body`];
+        document.getElementById('legal-modal').style.display = 'flex';
+    }
+    function closeLegal() { document.getElementById('legal-modal').style.display = 'none'; }
+    function acceptCookies() { document.getElementById('cookie-banner').style.display = 'none'; localStorage.setItem('cookies_accepted', 'true'); }
+    function copyUrl() { navigator.clipboard.writeText(document.getElementById('final-url').innerText); alert(langData[currentLang].alertLink); }
 
     window.onload = () => {
         initBackground();
-        const params = new URLSearchParams(window.location.search);
-        if(params.get('name')) {
-            if (!sessionStorage.getItem('session_active')) {
-                [1,2,3].forEach(id => localStorage.removeItem(`done_${id}`));
-                sessionStorage.setItem('session_active', 'true');
-            }
-            changeLang(params.get('lang') || 'ko');
-            document.getElementById('intro-section').style.display = 'none';
-            document.getElementById('setup-section').style.display = 'none';
+        if(!localStorage.getItem('cookies_accepted')) document.getElementById('cookie-banner').style.display = 'block';
+        const p = new URLSearchParams(window.location.search);
+        if(p.get('name')) {
+            if(!sessionStorage.getItem('session_active')) { [1,2,3].forEach(id=>localStorage.removeItem(`done_${id}`)); sessionStorage.setItem('session_active','true'); }
+            changeLang(p.get('lang') || 'ko');
             document.getElementById('edu-section').style.display = 'block';
-            renderList();
-        } else {
-            document.getElementById('intro-section').style.display = 'block';
-            changeLang('ko');
-        }
+        } else { document.getElementById('intro-section').style.display = 'block'; changeLang('ko'); }
     };
 </script>
 </body>
