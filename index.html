@@ -126,25 +126,8 @@
             <p id="txt-progress">진행도: 0 / 3</p>
         </div>
         <div id="edu-list"></div>
-        <button id="issue-btn" class="btn-main" style="display:none; background:var(--accent);" onclick="issueCert()">🏆 수료증 발급 (PDF)</button>
+        <button id="issue-btn" class="btn-main" style="display:none; background:var(--accent);" onclick="issueCert()">🏆 교육 완료 메시지 확인</button>
     </section>
-</div>
-
-<div id="cert-wrapper">
-    <div id="cert-template">
-        <div id="pdf-title" style="font-size: 3.5rem; color: #b59410; font-weight: bold; margin-bottom: 20px;">수 료 증</div>
-        <div style="font-size: 2.2rem; font-weight: bold; margin-bottom: 30px;"><span id="pdf-label-name">성명</span>: <span id="pdf-val-name"></span></div>
-        <div id="pdf-body" style="font-size: 1.5rem; line-height: 1.8; margin-bottom: 40px; word-break: keep-all; padding: 0 40px;">
-            위 보안관님은 가족이 정성껏 준비한 사기 예방 교육을 모두 이수하였으므로 이 증서를 수여합니다.
-        </div>
-        <div style="background: #fdfae6; padding: 30px; border-radius: 20px; font-size: 1.4rem; color: #444; font-style: italic; border: 1px solid #eee; margin: 0 40px;">
-            " <span id="pdf-val-msg"></span> "
-        </div>
-        <div style="margin-top: 50px; font-size: 1.2rem; color: #888;">
-            <span id="pdf-date-label">발급일</span>: 2026. 03. 29<br><br>
-            <b id="pdf-footer" style="font-size: 1.6rem; color: #333;">우리집 안전 보안관 본부</b>
-        </div>
-    </div>
 </div>
 
 <script>
@@ -161,8 +144,9 @@
             certTitle: "수 료 증", certBody: "위 보안관님은 가족이 정성껏 준비한 사기 예방 교육을 모두 이수하였으므로 이 증서를 수여합니다.",
             pdfName: "성명", pdfDate: "발급일", pdfFooter: "우리집 안전 보안관 본부",
             eduBtn: "내용 확인하기", alertLink: "링크가 복사되었습니다!",
-            issueBtn: "🏆 수료증 발급 (PDF)",
+            issueBtn: "🏆 교육 완료 메시지 확인",
             trendConfirm: "분석 내용 확인 완료",
+            completeTitle: "🎉 교육 이수 완료!",
             eduList: [
                 { 
                     id: 1, 
@@ -186,13 +170,14 @@
             certTitle: "Certificate", certBody: "This certificate is awarded for successfully completing the family safety education prepared by your family.",
             pdfName: "Name", pdfDate: "Date", pdfFooter: "Family Safety Sheriff Center",
             eduBtn: "View Content", alertLink: "Link copied to clipboard!",
-            issueBtn: "🏆 Issue Certificate (PDF)",
+            issueBtn: "🏆 View Completion Message",
             trendConfirm: "Trend Analysis Confirmed",
+            completeTitle: "🎉 Education Completed!",
             eduList: [
                 { 
                     id: 1, 
                     title: "[Analysis] 2026 Global Fraud Trends Summary", 
-                    content: "The 2026 fraud landscape is dominated by AI-driven technologies. 'Voice Cloning' allows scammers to replicate anyone's voice with just seconds of audio, while 'Deepfake FaceTime' calls make impersonation incredibly convincing. We are seeing a significant rise in celebrity-impersonated Love Scams and highly convincing automated phishing attempts using large language models. Always verify via a secondary channel.",
+                    content: "The 2026 fraud landscape is dominated by AI-driven technologies. 'Voice Cloning' allows scammers to replicate anyone's voice with just seconds of audio, while 'Deepfake FaceTime' calls make impersonation incredibly convincing. We are seeing a significant rise in celebrity-impersonated Love Scams and highly convincing automated phishing attempts using large language models.",
                     date: "2026.01.01" 
                 },
                 { id: 2, title: "[YouTube] THESE 5 Scams Are EXPLODING in 2026 — Don't Get Hit (Rossen Reports)", url: "https://www.youtube.com/results?search_query=Rossen+Reports+Scams+2026", date: "2026.01.05" },
@@ -202,26 +187,27 @@
         ja: {
             title: "🛡️ 我が家の安全保安官", subtitle: "大切な家族のための防犯 education",
             setupH2: "1. 教育対象の設定", labelTarget: "誰に送りますか？", optParent: "ご両親へ", optChild: "お子様へ", optSpouse: "配偶者へ",
-            labelName: "お名前", labelMsg: "愛のメッセージ", btnGenerate: "教育リンクを作成",
+            labelName: "お名前", labelMsg: "愛のメッセージ", btnGenerate: "教育링크를 생성",
             placeholderName: "名前を入力してください", placeholderMsg: "詐欺に遭わず、幸せに暮らそう！",
-            linkReady: "リンクが準備されました！", btnCopy: "コピーして送信",
+            linkReady: "リンク가 준비되었습니다!", btnCopy: "コピーして送信",
             eduWelcome: "ようこそ、保安官様！", 
-            eduDesc: "SNS型投資・ロマンス詐欺が急増しています。大切な資産を守るため、以下の教育を完了してください。", 
+            eduDesc: "SNS型投資・ロマンス詐欺가急増しています。大切な資産を守るため、以下の教育を完了してください。", 
             progress: "進捗",
-            certTitle: "修了証", certBody: "あなたは家族が用意した防犯教育課程を誠実に修了したため、本証を授与します。",
+            certTitle: "修了証", certBody: "あなたは家族が用意した防犯教育課程을誠実に修了したため、本証을授与します。",
             pdfName: "氏名", pdfDate: "発行日", pdfFooter: "我が家の安全保安官本部",
             eduBtn: "ニュース/動画を見る", alertLink: "リンクをコピーしました！",
-            issueBtn: "🏆 修了証を発行 (PDF)",
+            issueBtn: "🏆 完了メッセージを確認",
             trendConfirm: "トレンド分析を確認済み",
+            completeTitle: "🎉 教育修了！",
             eduList: [
                 { 
                     id: 1, 
                     title: "[分析] 2026年 日本の詐欺トレンド要約", 
-                    content: "2026年の日本では、SNSを通じた投資勧誘とロマンス詐欺が高度に融合した手法が急増しています. 犯人は半年以上の時間をかけて信頼関係を築き, 巧妙な偽の投資プラットフォームへ誘導します. また, AIを用いた『なりすまし』電話や, データSIMの本人確認を潜り抜ける手口も確認されています. 特に『あなたに会いに日本に行きます』といった甘い言葉には要注意です.",
+                    content: "2026年の日本では, SNSを通じた投資勧誘とロマンス詐欺가高度に融合した手法가急増しています. 犯人は半年以上の時間をかけて信頼関係を築き, 巧妙な偽의投資プラットフォームへ誘導します. また, AIを用いた『なりすまし』電話や, データSIM의本人確認を潜り抜ける手口도確認されています.",
                     date: "2026.01.01" 
                 },
-                { id: 2, title: "[ニュース] SNS詐欺対策、データSIMの本人確認義務づけ (日本政府対応)", url: "https://www.nikkei.com/article/DGXZQOUA123450S4A310C2000000/", date: "2024.03.12" },
-                { id: 3, title: "[YouTube] 「あなたに会いに日本に行きます」投資名目で2400万円をだまし取られる (被害事例)", url: "https://www.youtube.com/results?search_query=ロマンス詐欺+2400万円+被害", date: "2024.02.20" }
+                { id: 2, title: "[ニュース] SNS詐欺対策、데이터SIM의本人確認義務づけ (日本政府対応)", url: "https://www.nikkei.com/article/DGXZQOUA123450S4A310C2000000/", date: "2024.03.12" },
+                { id: 3, title: "[YouTube] 「あなたに会いに日本に行きます」投資名目2400万円をだまし取られる (被害事例)", url: "https://www.youtube.com/results?search_query=ロマンス詐欺+2400万円+被害", date: "2024.02.20" }
             ]
         }
     };
@@ -253,12 +239,6 @@
         document.getElementById('txt-edu-desc').innerText = d.eduDesc;
         document.getElementById('issue-btn').innerText = d.issueBtn;
 
-        document.getElementById('pdf-title').innerText = d.certTitle;
-        document.getElementById('pdf-body').innerText = d.certBody;
-        document.getElementById('pdf-label-name').innerText = d.pdfName;
-        document.getElementById('pdf-date-label').innerText = d.pdfDate;
-        document.getElementById('pdf-footer').innerText = d.pdfFooter;
-
         if(document.getElementById('edu-section').style.display === 'block') {
             renderList();
         }
@@ -289,14 +269,14 @@
             const div = document.createElement('div');
             div.className = `edu-card ${isDone ? 'done' : ''}`;
             
-            if (item.id === 1) { // 첫 번째 항목: 트렌드 분석 요약글
+            if (item.content) { 
                 div.innerHTML = `
                     <div class="edu-date">${item.date}</div>
                     <span style="font-weight:bold; display:block; margin-bottom:10px;">${item.title}</span>
                     <p style="font-size:0.9rem; color:#444; background:#f9f9f9; padding:12px; border-radius:8px; border:1px solid #eee; margin-bottom:10px;">${item.content}</p>
                     <button class="edu-btn" onclick="done(${item.id})">${isDone ? d.trendConfirm : d.eduBtn}</button>
                 `;
-            } else { // 나머지 항목: 기존 링크 방식
+            } else { 
                 div.innerHTML = `
                     <div class="edu-date">${item.date}</div>
                     <span style="font-weight:bold;">${item.title}</span>
@@ -323,17 +303,14 @@
         if(count >= total) document.getElementById('issue-btn').style.display = 'block';
     }
 
-    async function issueCert() {
+    function issueCert() {
         const params = new URLSearchParams(window.location.search);
-        document.getElementById('pdf-val-name').innerText = params.get('name');
-        document.getElementById('pdf-val-msg').innerText = params.get('msg');
+        const name = params.get('name') || "보안관";
+        const msg = params.get('msg') || "";
+        const d = langData[currentLang];
         
-        const template = document.getElementById('cert-template');
-        const canvas = await html2canvas(template, { scale: 2 });
-        const imgData = canvas.toDataURL('image/png');
-        const pdf = new jspdf.jsPDF('p', 'mm', 'a4');
-        pdf.addImage(imgData, 'PNG', 0, 0, 210, 297);
-        pdf.save(`${params.get('name')}_Certificate.pdf`);
+        const finalMsg = `${d.completeTitle}\n\n${name} 보안관님!\n"${msg}"\n\n${d.certBody}`;
+        alert(finalMsg);
     }
 
     window.onload = () => {
@@ -343,7 +320,6 @@
                 [1,2,3,4,5].forEach(id => localStorage.removeItem(`done_${id}`));
                 sessionStorage.setItem('session_active', 'true');
             }
-
             const lang = params.get('lang') || 'ko';
             changeLang(lang);
             document.getElementById('setup-section').style.display = 'none';
