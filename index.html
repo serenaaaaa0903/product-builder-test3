@@ -75,11 +75,17 @@
         
         .setup-preview-btn {
             position: absolute; top: 20px; right: 20px;
-            background: #f1f5f9; color: #475569; border: 1px solid #e2e8f0;
-            padding: 6px 12px; border-radius: 8px; font-size: 0.75rem;
-            cursor: pointer; font-weight: 600; transition: 0.2s;
+            background: #fff; color: var(--primary); border: 2px solid var(--accent);
+            padding: 8px 16px; border-radius: 12px; font-size: 0.8rem;
+            cursor: pointer; font-weight: 800; transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
+            animation: pulseBtn 2s infinite;
         }
-        .setup-preview-btn:hover { background: #e2e8f0; }
+        @keyframes pulseBtn {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
 
         .form-group { margin-bottom: 25px; }
         label { display: block; font-weight: 600; margin-bottom: 12px; color: #34495e; font-size: 0.95rem; }
@@ -112,12 +118,12 @@
 
         .quiz-container { margin-top: 15px; text-align: left; }
         .quiz-option { 
-            display: block; width: 100%; padding: 12px; margin-bottom: 8px; 
-            border: 1px solid #e2e8f0; border-radius: 10px; background: white;
-            cursor: pointer; transition: 0.2s; font-size: 0.9rem; text-align: left;
+            display: block; width: 100%; padding: 14px; margin-bottom: 10px; 
+            border: 1.5px solid #e2e8f0; border-radius: 12px; background: white;
+            cursor: pointer; transition: 0.2s; font-size: 0.95rem; text-align: left; font-weight: 500;
         }
-        .quiz-option:hover { background: #f1f5f9; border-color: #cbd5e0; }
-        .quiz-option.correct { background: #dcfce7 !important; border-color: #22c55e !important; }
+        .quiz-option:hover { background: #f8fafc; border-color: #cbd5e0; }
+        .quiz-option.correct { background: #dcfce7 !important; border-color: #22c55e !important; color: #166534; font-weight: 700; }
         .quiz-option.wrong { background: #fee2e2 !important; border-color: #ef4444 !important; }
 
         #cert-modal {
@@ -210,7 +216,6 @@
         </div>
         <div id="edu-list"></div>
         <div id="completion-buttons" style="display:none; flex-direction: column; gap: 10px;">
-            <button id="preview-btn" class="btn-main" style="background:var(--accent); color: #4e342e; margin-top: 0;" onclick="showFancyCert()">👀 수료증 미리보기</button>
             <button id="issue-btn" class="btn-main" style="background:var(--accent); color: #4e342e; margin-top: 0;" onclick="showFancyCert()">🏆 교육 이수 상장 확인</button>
         </div>
     </section>
@@ -248,7 +253,6 @@
             certFooter: "우리집 안전 보안관 본부",
             certSuffix: "안전 보안관님",
             eduBtn: "내용 확인하기", alertLink: "링크가 복사되었습니다!",
-            previewBtn: "👀 수료증 미리보기",
             issueBtn: "🏆 교육 이수 상장 확인",
             trendConfirm: "확인 완료",
             readAloud: "🔊 분석 내용 읽어주기",
@@ -274,7 +278,6 @@
             certFooter: "Family Safety Sheriff HQ",
             certSuffix: "Safety Sheriff",
             eduBtn: "View Content", alertLink: "Link copied to clipboard!",
-            previewBtn: "👀 Certificate Preview",
             issueBtn: "🏆 View Completion Certificate",
             trendConfirm: "Confirmed",
             readAloud: "🔊 Read Aloud",
@@ -286,7 +289,7 @@
             solveBtn: "Check Answer"
         },
         ja: {
-            title: "🛡️ 我が家の安全保安官", subtitle: "大切な家族のための防범 education",
+            title: "🛡️ 我が家の安全保安관", subtitle: "大切な家族のための防犯 education",
             setupH2: "1. 교육대상 설정", labelTarget: "誰に送りますか？", optParent: "ご両親へ", optChild: "お子様へ", optSpouse: "配偶者へ",
             labelName: "お名前", labelMsg: "愛のメッセージ", btnGenerate: "教育링크를 작성",
             placeholderName: "名前を入力してください", placeholderMsg: "詐欺에遭わず, 幸せに暮らそう!",
@@ -300,33 +303,32 @@
             certFooter: "我が家の安全保安官本部",
             certSuffix: "安全保安官様",
             eduBtn: "内容を見る", alertLink: "링크를 복사했습니다!",
-            previewBtn: "👀 修了証のプレ뷰",
             issueBtn: "🏆 修了証（上状）を確認",
             trendConfirm: "確認済み",
             readAloud: "🔊 内容を読み上げる",
             ttsLang: "ja-JP",
             btnSave: "画像を保存", btnClose: "閉じる",
             setupPreview: "メッセージプレビュー",
-            quizCorrect: "正解です！保安官様、素晴らしいです。",
-            quizWrong: "不正解です。もう一度考えてみましょう！",
+            quizCorrect: "正解です! 保안관様, 素晴らしいです.",
+            quizWrong: "不正解です. もう一度考えてみましょう!",
             solveBtn: "正解を確認"
         }
     };
 
     const eduDataPerLang = {
         ko: [
-            { id: 1, title: "[분석] 2026년 대한민국 사기 트렌드 요약", content: "2026년 한국의 사기 트렌드는 '초정밀 하이브리드화'입니다. AI 딥페이크로 목소리와 얼굴을 똑같이 흉내 낸 가족 사칭 사기가 주를 이룹니다. 특히 '로맨스 스캠'과 '투자 사기'가 결합되어 피해자의 심리와 자산을 동시에 공략하는 정교한 수법이 기승을 부리고 있으니 각별한 주의가 필요합니다. 모르는 링크나 과도한 수익 약속은 무조건 의심하십시오.", date: "2026.01.01" },
-            { id: 2, title: "[퀴즈] 보이스피싱 의심 상황 퀴즈", quiz: { question: "낯선 사람이 SNS로 접근해 친분을 쌓은 뒤, 고수익 가상화폐 투자를 권유한다면?", options: ["새로운 재테크 기회이므로 즉시 가입한다.", "로맨스 스캠 결합 사기이므로 차단하고 신고한다."], answer: 1 }, date: "2026.01.10" },
+            { id: 1, title: "[분석] 2026년 대한민국 사기 트렌드 요약", content: "2026년 한국의 사기 트렌드는 '초정밀 하이브리드화'입니다. AI 딥페이크로 목소리와 얼굴을 똑같이 흉내 낸 가족 사칭 사기가 주를 이룹니다. 특히 '로맨스 스캠'과 '투자 사기'가 결합되어 피해자의 심리와 자산을 동시에 공략하는 정교한 수법이 기승을 부리고 있으니 각별한 주의가 필요합니다.", date: "2026.01.01" },
+            { id: 2, title: "[퀴즈] 다음 중 신종 사기 의심 상황은?", quiz: { question: "SNS에서 친분을 쌓은 낯선 사람이 '나만 아는 가상화폐 대박 정보'라며 특정 앱 설치를 유도한다면?", options: ["친구가 준 정보이므로 믿고 설치한다.", "전형적인 투자 사기 수법이므로 무시하고 차단한다.", "수익이 날 수도 있으니 소액만 투자해본다."], answer: 1 }, date: "2026.01.10" },
             { id: 3, title: "[유튜브] [속보] 법무부, '120억 로맨스 스캠 부부' 송환 요청", url: "https://www.youtube.com/results?search_query=120억+로맨스+스캠+부부+송환", date: "2024.03.15" }
         ],
         en: [
-            { id: 1, title: "[Analysis] 2026 Global Fraud Trends", content: "The 2026 fraud landscape is dominated by AI-driven technologies. 'Voice Cloning' allows scammers to replicate voices with seconds of audio, while 'Deepfake FaceTime' makes impersonation incredibly convincing. Celebrity-impersonated Love Scams and fake investment portals are also at an all-time high.", date: "2026.01.01" },
-            { id: 2, title: "[Quiz] AI Scam Response Quiz", quiz: { question: "You get a call from your child asking for urgent money. What is the safest first step?", options: ["Send money immediately to help them.", "Hang up and call their known number to verify."], answer: 1 }, date: "2026.01.05" },
-            { id: 3, title: "[YouTube] The Call That Sounds Like Your Kid (But Isn't)", url: "https://www.youtube.com/results?search_query=AI+voice+cloning+scam+protection", date: "2025.11.20" }
+            { id: 1, title: "[Analysis] 2026 Global Fraud Trends", content: "The 2026 fraud landscape is dominated by AI-driven technologies. 'Voice Cloning' allows scammers to replicate voices with seconds of audio, while 'Deepfake FaceTime' makes impersonation incredibly convincing.", date: "2026.01.01" },
+            { id: 2, title: "[Quiz] What is the best way to handle AI scams?", quiz: { question: "You receive a call from your child saying they are in trouble. What should you do first?", options: ["Send money immediately.", "Give your credit card details.", "Hang up and call them back on their real number to verify."], answer: 2 }, date: "2026.01.05" },
+            { id: 3, title: "[YouTube] THESE 5 Scams Are EXPLODING in 2026", url: "https://www.youtube.com/results?search_query=Rossen+Reports+Scams+2026", date: "2026.01.05" }
         ],
         ja: [
-            { id: 1, title: "[分析] 2026년 日本の詐欺トレンド", content: "2026年の日本では, SNSを通じた投資勧誘とロマンス詐欺가高度에 융합된 수법이 급증하고 있습니다. 범인은 긴 시간을 들여 신뢰 관계를 쌓고, 교묘한 가짜 투자 플랫폼으로 유도합니다. AI를 이용한 '사칭' 전화에도 주의가 필요합니다.", date: "2026.01.01" },
-            { id: 2, title: "[クイズ] SNS投資詐欺クイズ", quiz: { question: "SNSで知り合った外国人から『特別な投資情報』を教えると言われたら?", options: ["運命だと信じて振り込む。", "詐欺の可能性が高いので相談・ブロックする。"], answer: 1 }, date: "2024.03.12" },
+            { id: 1, title: "[分析] 2026년 日本の詐欺トレンド", content: "2026年の日本では, SNSを通じた投資勧誘とロマンス詐欺가高度에 융합된 수법이 급증하고 있습니다. 범인은 긴 시간을 들여 신뢰 관계를 쌓고, 교묘한 가짜 투자 플랫폼으로 유도합니다.", date: "2026.01.01" },
+            { id: 2, title: "[クイズ] SNS型投資詐欺의正しい対処는?", quiz: { question: "『絶対に儲かる』という投資情報をSNSで知り合った外国人から教えられたら？", options: ["すぐに振り込む", "詐欺を疑い, ブロックまたは警察に相談する", "一度だけ試してみる"], answer: 1 }, date: "2024.03.12" },
             { id: 3, title: "[YouTube] あなた에会いに日本に行きます (投資詐欺)", url: "https://www.youtube.com/results?search_query=ロマンス詐欺+2400万円+被害", date: "2024.02.20" }
         ]
     };
@@ -371,7 +373,6 @@
         document.getElementById('txt-link-instruct').innerText = d.linkInstruct;
         document.getElementById('txt-btn-copy').innerText = d.btnCopy;
         document.getElementById('txt-edu-desc').innerText = d.eduDesc;
-        document.getElementById('preview-btn').innerText = d.previewBtn;
         document.getElementById('issue-btn').innerText = d.issueBtn;
         document.getElementById('btn-save-ui').innerText = d.btnSave;
         document.getElementById('btn-close-ui').innerText = d.btnClose;
