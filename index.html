@@ -103,7 +103,6 @@
         
         #intro-section, #setup-section, #edu-section { display: none; }
         
-        /* [세련된 광고 페이지 스타일] */
         #intro-section {
             background: linear-gradient(180deg, #ffffff 0%, #f9f9f9 100%);
             border: none;
@@ -175,7 +174,7 @@
         @keyframes modalUp { from { transform: translateY(80px) scale(0.9); opacity: 0; } to { transform: translateY(0) scale(1); opacity: 1; } }
         
         .cert-title { font-size: 2.2rem; color: #b8860b; font-weight: 800; margin-bottom: 20px; letter-spacing: 4px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
-        .cert-name { font-size: 1.4rem; font-weight: 700; margin-bottom: 25px; border-bottom: 2px solid #b8860b; display: inline-block; padding: 0 20px; color: #1a202c; }
+        .cert-name { font-size: 1.4rem; font-weight: 700; margin-bottom: 25px; border-bottom: 3px solid #b8860b; display: inline-block; padding: 0 20px; color: #1a202c; }
         .cert-body { font-size: 1rem; line-height: 1.8; margin-bottom: 30px; word-break: keep-all; color: #4a5568; }
         .cert-msg { background: #fffaf0; padding: 15px; border-radius: 12px; border: 1px solid #feebc8; margin-bottom: 30px; font-style: italic; color: #744210; font-weight: 500; font-size: 0.95rem; }
         .cert-footer { font-size: 1.2rem; font-weight: 800; color: #2d3748; }
@@ -353,20 +352,20 @@
         ja: {
             title: "🛡️ 我が家の安全保安官", subtitle: "大切な家族のための防犯 education",
             introH2: "我が家を振り込め詐欺や新型詐欺から守りましょう！",
-            introP1: "ご両親や配偶者、お子様など、大切な人に温かいメッセージと共に最新の振り込め詐欺予防教育를贈ることができます。",
-            liF1: "毎月更新される新型詐欺トレンドの分析", liF2: "学習効果を高めるカスタマイズクイズ", liF3: "修了後に発行される公式な安全保安官の賞状", liF4: "誰でも簡単に聞けるAI読み上げ(TTS)機能",
+            introP1: "ご両親や配偶者、お子様など、大切な人に温かいメッセージと共に最新の振り込め詐欺予防教育を贈ることができます。",
+            liF1: "毎月更新される新型詐欺トレンドの分析", liF2: "学習効果を高めるカスタマイ즈 퀴즈", liF3: "修了後に発行される公式な安全保安官の賞状", liF4: "誰でも簡単に聞けるAI読み上げ(TTS)機能",
             btnStart: "家族の安全を守り始める", 
             revenueAd: "本サービスは広告手数料によって運営されており, 収益の10％は不遇な隣人に寄付される予定です.",
             setupH2: "1. 教育対象の設定", labelTarget: "誰に送りますか？", optParent: "ご両親へ", optChild: "お子様へ", optSpouse: "配偶者へ",
-            labelName: "お名前", labelMsg: "愛のメッセージ", btnGenerate: "教育リンクを作成",
+            labelName: "お名前", labelMsg: "愛のメッセージ", btnGenerate: "교육 링크를 생성",
             placeholderName: "名前を入力してください", placeholderMsg: "詐欺に遭わず, 幸せに暮らそう!",
             linkReady: "링크가 준비되었습니다!", btnCopy: "コピーして送信",
             linkInstruct: "링크를 클릭한 후, 생성된 URL을 이메일 등으로 전송해 주세요.",
             eduWelcome: "安全保安官様, ようこそ!", 
-            eduDesc: "本教育は毎月の新型詐欺トレンドを分析し, 教育することを目的としています. 以下の教育を完了してください.", 
+            eduDesc: "本교육은 매달 신종사기 트랜드를 분석하고 교육을 목적으로 하고 있습니다. 以下の교육을 완료해 주세요.", 
             progress: "進捗",
             certTitle: "修 了 証", 
-            certBody: "上記の安全保安官は, 家族が丹精込めて準備した防犯教育課程を誠実に修了したため, 本証を授与します.",
+            certBody: "上記の安全保安官은, 家族가丹精込めて準備した防犯教育課程을誠実に修了したため, 本証을授与します.",
             certFooter: "我が家の安全保安官本部",
             certSuffix: "安全保安官様",
             eduBtn: "内容を見る", alertLink: "링크를 복사했습니다!",
@@ -377,14 +376,14 @@
             btnSave: "画像を保存", btnClose: "閉じる",
             setupPreview: "メッセージプレビュー",
             quizCorrect: "正解です! 保安官様, 素晴らしいです.",
-            quizWrong: "不正解です. もう一度考えてみましょう!",
+            quizWrong: "不正解입니다. もう一度考えてみましょう!",
             solveBtn: "正解を確認"
         }
     };
 
     const eduDataPerLang = {
         ko: [
-            { id: 1, title: "[분석] 2026년 대한민국 사기 트렌드 요약", content: "2026년 한국의 사기 트렌드는 '초정밀 하이브리드화'입니다. AI 딥페이크로 목소리와 얼굴을 똑같이 흉내 낸 가족 사칭 사기가 주를 이룹니다. 특히 '로맨스 스캠'과 '투자 사기'가 결합되어 피해자의 심리와 자산을 동시에 공략하는 정교한 수법이 기승을 부리고 있으니 각별한 주의가 필요합니다.", date: "2026.01.01" },
+            { id: 1, title: "[분석] 2026년 대한민국 사기 트렌드 요약", content: "2026년 한국의 사기 트렌드는 '초정밀 하이브리드화'입니다. AI 딥페이크로 목소리와 얼굴을 똑같이 흉내 낸 가족 사칭 사기가 주를 이룹니다. 특히 '로맨스 스캠'과 '투자 사기'가 결합되어 피해자의 심리와 자산을 동시에 공략하는 정교한 수법이 기승을 부리고 있으니 각별한 주의가 필요합니다. 모르는 링크나 과도한 수익 약속은 무조건 의심하십시오.", date: "2026.01.01" },
             { id: 2, title: "[퀴즈] 다음 중 신종 사기 의심 상황은?", quiz: { question: "SNS에서 친분을 쌓은 낯선 사람이 '나만 아는 가상화폐 대박 정보'라며 특정 앱 설치를 유도한다면?", options: ["친구가 준 정보이므로 믿고 설치한다.", "전형적인 투자 사기 수법이므로 무시하고 차단한다.", "수익이 날 수도 있으니 소액만 투자해본다."], answer: 1 }, date: "2026.01.10" },
             { id: 3, title: "[유튜브] [속보] 법무부, '120억 로맨스 스캠 부부' 송환 요청", url: "https://www.youtube.com/results?search_query=120억+로맨스+스캠+부부+송환", date: "2024.03.15" }
         ],
@@ -394,8 +393,8 @@
             { id: 3, title: "[YouTube] THESE 5 Scams Are EXPLODING in 2026", url: "https://www.youtube.com/results?search_query=Rossen+Reports+Scams+2026", date: "2026.01.05" }
         ],
         ja: [
-            { id: 1, title: "[分析] 2026년 日本の詐欺トレンド", content: "2026年の日本では, SNSを通じた投資勧誘とロマンス詐欺が高度に融合した手法が急増しています. 犯人は長い時間をかけて信頼関係を築き, 巧妙な偽の投資プラットフォームへの誘導も確認されています.", date: "2026.01.01" },
-            { id: 2, title: "[クイズ] SNS型投資詐欺の正しい対処は？", quiz: { question: "『絶対に儲かる』という投資情報をSNSで知り合った外国人から教えられたら？", options: ["すぐに振り込む", "詐欺を疑い, ブロックまたは警察に相談する", "一度だけ試してみる"], answer: 1 }, date: "2024.03.12" },
+            { id: 1, title: "[分析] 2026년 日本の詐기에 트렌드", content: "2026년 일본에서는 SNS를 통한 투자 권유와 로맨스 스캠이 고도로 융합된 수법이 급증하고 있습니다. 범인은 긴 시간을 들여 신뢰 관계를 쌓고, 교묘한 가짜 투자 플랫폼으로 유도합니다.", date: "2026.01.01" },
+            { id: 2, title: "[クイズ] SNS型投資詐欺の正しい対処は？", quiz: { question: "『絶対に儲かる』という投資 정보를 SNSで知り合った外国人から教えられたら？", options: ["すぐに振り込む", "詐欺を疑い, 블록 또는 경찰에 相談する", "一度だけ試してみる"], answer: 1 }, date: "2024.03.12" },
             { id: 3, title: "[YouTube] あなたに会いに日本に行きます (投資詐欺)", url: "https://www.youtube.com/results?search_query=ロマンス詐欺+2400万円+被害", date: "2024.02.20" }
         ]
     };
