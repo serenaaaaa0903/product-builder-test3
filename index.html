@@ -73,6 +73,7 @@
             position: relative;
         }
         
+        /* [메시지 미리보기 버튼 강조 스타일] */
         .setup-preview-btn {
             position: absolute; top: 20px; right: 20px;
             background: #fff; color: var(--primary); border: 2px solid var(--accent);
@@ -99,8 +100,10 @@
             border-radius: 18px; font-size: 1.25rem; font-weight: 700; cursor: pointer; 
             margin-top: 15px; transition: 0.3s; box-shadow: 0 6px 20px rgba(0,0,0,0.15);
         }
+        .btn-main:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
         
-        #edu-section { display: none; }
+        #intro-section, #setup-section, #edu-section { display: none; }
+        
         .edu-card { 
             background: white; border-radius: 20px; padding: 25px; margin-bottom: 25px; 
             border: 1px solid #edf2f7; position: relative; border-left: 10px solid #cbd5e0; 
@@ -158,6 +161,12 @@
             font-size: 0.85rem; cursor: pointer; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;
             font-weight: 600;
         }
+
+        /* [광고 페이지 전용 스타일] */
+        .intro-icon-group { display: flex; justify-content: center; gap: 20px; margin: 30px 0; font-size: 2.5rem; }
+        .intro-feature-list { text-align: left; margin: 25px 0; padding: 0; list-style: none; }
+        .intro-feature-list li { margin-bottom: 15px; padding-left: 30px; position: relative; font-size: 1.05rem; }
+        .intro-feature-list li::before { content: "✅"; position: absolute; left: 0; }
     </style>
 </head>
 <body>
@@ -176,6 +185,23 @@
 </header>
 
 <div class="container">
+    <!-- [새로 추가된 첫 페이지: 광고 및 소개] -->
+    <section id="intro-section">
+        <h2 id="txt-intro-h2" style="color: var(--primary); text-align: center; font-size: 1.6rem; word-break: keep-all;">우리집을 보이스피싱과 신종 사기로부터 안전하게 지키세요!</h2>
+        <div class="intro-icon-group">👨‍👩‍👧‍👦 🛡️ 📱</div>
+        <p id="txt-intro-p1" style="text-align: center; color: #4a5568; font-size: 1.1rem; line-height: 1.8; word-break: keep-all;">
+            부모님, 배우자, 자녀 등 사랑하는 사람들에게 **무료로** 따뜻한 메시지와 함께 최신 사기 수법 교육을 선물할 수 있습니다.
+        </p>
+        <ul class="intro-feature-list">
+            <li id="li-f1">매달 업데이트되는 신종 사기 트렌드 분석</li>
+            <li id="li-f2">학습 효과를 높이는 맞춤형 퀴즈 시스템</li>
+            <li id="li-f3">교육 이수 후 발급되는 정식 안전 보안관 상장</li>
+            <li id="li-f4">누구나 쉽게 듣는 AI 읽어주기(TTS) 기능</li>
+        </ul>
+        <button class="btn-main" id="btn-start-now" onclick="goSetup()">가족 안전 지키기 시작하기</button>
+        <p id="txt-free-ad" style="text-align: center; font-size: 0.85rem; color: #999; margin-top: 15px;">* 본 서비스는 공익을 목적으로 하는 100% 무료 시스템입니다.</p>
+    </section>
+
     <section id="setup-section">
         <button id="btn-setup-preview" class="setup-preview-btn" onclick="previewOnSetup()">메시지 미리보기</button>
         <h2 id="txt-setup-h2">1. 교육 대상 설정</h2>
@@ -240,6 +266,10 @@
     const langData = {
         ko: {
             title: "🛡️ 우리집 안전 보안관", subtitle: "사랑하는 가족을 위한 맞춤 교육",
+            introH2: "우리집을 보이스피싱과 신종 사기로부터 안전하게 지키세요!",
+            introP1: "부모님, 배우자, 자녀 등 사랑하는 사람들에게 **무료로** 따뜻한 메시지와 함께 최신 사기 수법 교육을 선물할 수 있습니다.",
+            liF1: "매달 업데이트되는 신종 사기 트렌드 분석", liF2: "학습 효과를 높이는 맞춤형 퀴즈 시스템", liF3: "교육 이수 후 발급되는 정식 안전 보안관 상장", liF4: "누구나 쉽게 듣는 AI 읽어주기(TTS) 기능",
+            btnStart: "가족 안전 지키기 시작하기", freeAd: "* 본 서비스는 공익을 목적으로 하는 100% 무료 시스템입니다.",
             setupH2: "1. 교육 대상 설정", labelTarget: "누구에게 보낼까요?", optParent: "부모님께 (효도 보안관)", optChild: "자녀에게 (청년 보안관)", optSpouse: "배우자에게 (파트너 보안관)",
             labelName: "받는 분 성함", labelMsg: "사랑의 메시지", btnGenerate: "교육 링크 생성",
             placeholderName: "성함을 입력하세요", placeholderMsg: "사기 당하지 말고 행복하게 살자!",
@@ -265,6 +295,10 @@
         },
         en: {
             title: "🛡️ Family Safety Sheriff", subtitle: "Customized Education for Your Loved Ones",
+            introH2: "Keep Your Home Safe from Voice Phishing and New Scams!",
+            introP1: "Send a warm message and latest scam prevention education to your parents, spouse, or children for **FREE**.",
+            liF1: "Monthly updated analysis of new scam trends", liF2: "Customized quiz system for better learning", liF3: "Official Safety Sheriff certificate issued upon completion", liF4: "AI Read Aloud (TTS) for easy accessibility",
+            btnStart: "Start Protecting My Family", freeAd: "* This service is 100% free for public interest.",
             setupH2: "1. Setup Education Target", labelTarget: "Who is this for?", optParent: "For Parents", optChild: "For Children", optSpouse: "For Spouse",
             labelName: "Recipient Name", labelMsg: "Message of Love", btnGenerate: "Create Education Link",
             placeholderName: "Enter name", placeholderMsg: "Stay safe and be happy!",
@@ -289,10 +323,14 @@
             solveBtn: "Check Answer"
         },
         ja: {
-            title: "🛡️ 我が家の安全保安관", subtitle: "大切な家族のための防犯 education",
+            title: "🛡️ 我が家の安全保安官", subtitle: "大切な家族のための防犯 education",
+            introH2: "我が家を振り込め詐欺や新型詐欺から守りましょう！",
+            introP1: "ご両親や配偶者、お子様など、大切な人に温かいメッセージと共に最新の詐欺対策教育を**無料**で贈ることができます。",
+            liF1: "毎月更新される新型詐欺トレンドの分析", liF2: "学習効果を高めるカスタマイズクイズ", liF3: "修了後に発行される公式な安全保安官の賞状", liF4: "誰でも簡単に聞けるAI読み上げ(TTS)機能",
+            btnStart: "家族の安全を守り始める", freeAd: "* 本サービスは公益を目的とした100%無料のシステムです。",
             setupH2: "1. 교육대상 설정", labelTarget: "誰に送りますか？", optParent: "ご両親へ", optChild: "お子様へ", optSpouse: "配偶者へ",
-            labelName: "お名前", labelMsg: "愛のメッセージ", btnGenerate: "教育링크를 작성",
-            placeholderName: "名前を入力してください", placeholderMsg: "詐欺에遭わず, 幸せに暮らそう!",
+            labelName: "お名前", labelMsg: "愛의 메시지", btnGenerate: "교육 링크를 생성",
+            placeholderName: "名前を入力してください", placeholderMsg: "詐欺에遭わず、幸せ에暮らそう！",
             linkReady: "링크가 준비되었습니다!", btnCopy: "コピーして送信",
             linkInstruct: "링크를 클릭한 후, 생성된 URL을 이메일 등으로 전송해 주세요.",
             eduWelcome: "安全保安官様, ようこそ!", 
@@ -309,8 +347,8 @@
             ttsLang: "ja-JP",
             btnSave: "画像を保存", btnClose: "閉じる",
             setupPreview: "メッセージプレビュー",
-            quizCorrect: "正解です! 保안관様, 素晴らしいです.",
-            quizWrong: "不正解です. もう一度考えてみましょう!",
+            quizCorrect: "正解です! 保安官様, 素晴らしいです.",
+            quizWrong: "不正解입니다. もう一度考えてみましょう!",
             solveBtn: "正解を確認"
         }
     };
@@ -328,7 +366,7 @@
         ],
         ja: [
             { id: 1, title: "[分析] 2026년 日本の詐欺トレンド", content: "2026年の日本では, SNSを通じた投資勧誘とロマンス詐欺가高度에 융합된 수법이 급증하고 있습니다. 범인은 긴 시간을 들여 신뢰 관계를 쌓고, 교묘한 가짜 투자 플랫폼으로 유도합니다.", date: "2026.01.01" },
-            { id: 2, title: "[クイズ] SNS型投資詐欺의正しい対処는?", quiz: { question: "『絶対に儲かる』という投資情報をSNSで知り合った外国人から教えられたら？", options: ["すぐに振り込む", "詐欺を疑い, ブロックまたは警察に相談する", "一度だけ試してみる"], answer: 1 }, date: "2024.03.12" },
+            { id: 2, title: "[クイズ] SNS型投資詐欺의正しい対処는?", quiz: { question: "『絶対に儲かる』という投資情報をSNSで知り合った外国人から教えられたら？", options: ["すぐに振り込む", "詐欺를疑い, 블록 또는 경찰에 相談する", "一度だけ試してみる"], answer: 1 }, date: "2024.03.12" },
             { id: 3, title: "[YouTube] あなた에会いに日本に行きます (投資詐欺)", url: "https://www.youtube.com/results?search_query=ロマンス詐欺+2400万円+被害", date: "2024.02.20" }
         ]
     };
@@ -358,6 +396,15 @@
         const d = langData[lang];
         document.getElementById('txt-title').innerText = d.title;
         document.getElementById('txt-subtitle').innerText = d.subtitle;
+        document.getElementById('txt-intro-h2').innerText = d.introH2;
+        document.getElementById('txt-intro-p1').innerText = d.introP1;
+        document.getElementById('li-f1').innerText = d.liF1;
+        document.getElementById('li-f2').innerText = d.liF2;
+        document.getElementById('li-f3').innerText = d.liF3;
+        document.getElementById('li-f4').innerText = d.liF4;
+        document.getElementById('btn-start-now').innerText = d.btnStart;
+        document.getElementById('txt-free-ad').innerText = d.freeAd;
+
         document.getElementById('txt-setup-h2').innerText = d.setupH2;
         document.getElementById('btn-setup-preview').innerText = d.setupPreview;
         document.getElementById('txt-label-target').innerText = d.labelTarget;
@@ -383,11 +430,16 @@
         if(document.getElementById('edu-section').style.display === 'block') renderList();
     }
 
+    function goSetup() {
+        document.getElementById('intro-section').style.display = 'none';
+        document.getElementById('setup-section').style.display = 'block';
+        window.scrollTo(0, 0);
+    }
+
     function previewOnSetup() {
         const name = document.getElementById('p_name').value;
         const msg = document.getElementById('p_msg').value;
         if(!name || !msg) return alert(currentLang === 'ko' ? "이름과 메시지를 먼저 입력해주세요." : "Please enter name and message first.");
-        
         const d = langData[currentLang];
         document.getElementById('cert-ui-title').innerText = d.certTitle;
         document.getElementById('cert-ui-name').innerText = name;
@@ -423,7 +475,6 @@
             const isDone = localStorage.getItem(`done_${item.id}`);
             const div = document.createElement('div');
             div.className = `edu-card ${isDone ? 'done' : ''}`;
-            
             if (item.content) { 
                 div.innerHTML = `
                     <div class="edu-date">${item.date}</div>
@@ -457,12 +508,9 @@
     function checkQuiz(btn, selected, correct, id) {
         if(localStorage.getItem(`done_${id}`)) return;
         if(selected === correct) {
-            btn.classList.add('correct');
-            alert(langData[currentLang].quizCorrect);
-            done(id);
+            btn.classList.add('correct'); alert(langData[currentLang].quizCorrect); done(id);
         } else {
-            btn.classList.add('wrong');
-            alert(langData[currentLang].quizWrong);
+            btn.classList.add('wrong'); alert(langData[currentLang].quizWrong);
             setTimeout(() => btn.classList.remove('wrong'), 500);
         }
     }
@@ -512,8 +560,7 @@
             canvas.toBlob((blob) => {
                 const url = window.URL.createObjectURL(blob);
                 const link = document.createElement('a');
-                link.href = url; link.download = `Award.png`;
-                link.click();
+                link.href = url; link.download = `Award.png`; link.click();
                 window.URL.revokeObjectURL(url);
             }, 'image/png');
         } catch (e) { alert("Error"); } finally { buttons.style.visibility = 'visible'; }
@@ -530,9 +577,13 @@
                 sessionStorage.setItem('session_active', 'true');
             }
             changeLang(params.get('lang') || 'ko');
+            document.getElementById('intro-section').style.display = 'none';
             document.getElementById('setup-section').style.display = 'none';
             document.getElementById('edu-section').style.display = 'block';
             renderList();
+        } else {
+            document.getElementById('intro-section').style.display = 'block';
+            changeLang('ko');
         }
     };
 </script>
