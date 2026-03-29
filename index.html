@@ -54,13 +54,10 @@
             padding: 6px 14px; border-radius: 20px; cursor: pointer; font-size: 0.85rem; transition: 0.3s;
         }
         .lang-btn.active { background: var(--accent); color: #000; font-weight: bold; border-color: var(--accent); }
-        .lang-btn:hover { background: rgba(255,255,255,0.2); }
 
         header {
-            background: transparent;
-            color: white; padding: 60px 20px;
-            text-align: center;
-            position: relative;
+            background: transparent; color: white; padding: 60px 20px;
+            text-align: center; position: relative;
         }
         header h1 { font-size: 2.2rem; margin: 0; letter-spacing: -1px; text-shadow: 0 4px 10px rgba(0,0,0,0.3); }
         header p { opacity: 0.9; font-size: 1.1rem; margin-top: 12px; }
@@ -69,7 +66,7 @@
 
         section { 
             background: rgba(255, 255, 255, 0.98); 
-            padding: 40px; border-radius: 28px; 
+            padding: 30px; border-radius: 28px; 
             box-shadow: var(--card-shadow);
             border: 1px solid rgba(255,255,255,0.5);
             margin-bottom: 30px;
@@ -81,65 +78,54 @@
             width: 100%; padding: 16px; border: 1.5px solid #e2e8f0; border-radius: 16px; 
             box-sizing: border-box; font-size: 1rem; transition: 0.3s; background: #f8fafc;
         }
-        input:focus, textarea:focus, select:focus { border-color: var(--primary); outline: none; background: white; box-shadow: 0 0 0 4px rgba(27,94,32,0.1); }
         
         .btn-main { 
             width: 100%; padding: 22px; background: var(--primary); color: white; border: none; 
             border-radius: 18px; font-size: 1.25rem; font-weight: 700; cursor: pointer; 
             margin-top: 15px; transition: 0.3s; box-shadow: 0 6px 20px rgba(0,0,0,0.15);
         }
-        .btn-main:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
-        .btn-main:active { transform: translateY(0); }
         
         #edu-section { display: none; }
         .edu-card { 
-            background: white; border-radius: 20px; padding: 28px; margin-bottom: 25px; 
+            background: white; border-radius: 20px; padding: 25px; margin-bottom: 25px; 
             border: 1px solid #edf2f7; position: relative; border-left: 10px solid #cbd5e0; 
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
         }
         .edu-card.done { border-left-color: var(--primary); background: #f0fdf4 !important; border-color: #bbf7d0; transform: translateY(-5px); }
         
-        .edu-date { font-size: 0.85rem; color: #718096; margin-bottom: 8px; font-weight: 600; }
-        .edu-btn { 
-            display: block; margin-top: 18px; padding: 16px; background: #2d3748; color: white; 
-            text-align: center; text-decoration: none; border-radius: 14px; font-weight: 600; 
-            border: none; width: 100%; cursor: pointer; transition: 0.3s;
-        }
-        .done .edu-btn { background: var(--primary); }
-
+        /* [상장 모달 모바일 최적화] */
         #cert-modal {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.85); z-index: 1000; justify-content: center; align-items: center; padding: 20px;
+            background: rgba(0,0,0,0.85); z-index: 1000; justify-content: center; align-items: center; padding: 10px;
             backdrop-filter: blur(10px);
         }
         #cert-content {
-            background: white; width: 100%; max-width: 550px; padding: 60px; border: 12px double var(--accent);
+            background: white; width: 95%; max-width: 500px; padding: 30px 20px; border: 8px double var(--accent);
             text-align: center; position: relative; box-shadow: 0 30px 60px rgba(0,0,0,0.5);
             animation: modalUp 0.7s cubic-bezier(0.23, 1, 0.32, 1);
             background-image: radial-gradient(circle at 2px 2px, #f7f7f7 1px, transparent 0);
-            background-size: 40px 40px;
+            background-size: 30px 30px;
+            max-height: 90vh; overflow-y: auto;
         }
         @keyframes modalUp { from { transform: translateY(80px) scale(0.9); opacity: 0; } to { transform: translateY(0) scale(1); opacity: 1; } }
         
-        .cert-title { font-size: 3rem; color: #b8860b; font-weight: 800; margin-bottom: 30px; letter-spacing: 6px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
-        .cert-name { font-size: 1.8rem; font-weight: 700; margin-bottom: 35px; border-bottom: 3px solid #b8860b; display: inline-block; padding: 0 40px; color: #1a202c; }
-        .cert-body { font-size: 1.2rem; line-height: 2; margin-bottom: 40px; word-break: keep-all; color: #4a5568; }
-        .cert-msg { background: #fffaf0; padding: 25px; border-radius: 16px; border: 1px solid #feebc8; margin-bottom: 40px; font-style: italic; color: #744210; font-weight: 500; font-size: 1.1rem; }
-        .cert-footer { font-size: 1.4rem; font-weight: 800; color: #2d3748; }
-        .cert-date { font-size: 1.1rem; color: #a0aec0; margin-top: 20px; }
+        .cert-title { font-size: 2.2rem; color: #b8860b; font-weight: 800; margin-bottom: 20px; letter-spacing: 4px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        .cert-name { font-size: 1.4rem; font-weight: 700; margin-bottom: 25px; border-bottom: 2px solid #b8860b; display: inline-block; padding: 0 20px; color: #1a202c; }
+        .cert-body { font-size: 1rem; line-height: 1.8; margin-bottom: 30px; word-break: keep-all; color: #4a5568; }
+        .cert-msg { background: #fffaf0; padding: 15px; border-radius: 12px; border: 1px solid #feebc8; margin-bottom: 30px; font-style: italic; color: #744210; font-weight: 500; font-size: 0.95rem; }
+        .cert-footer { font-size: 1.2rem; font-weight: 800; color: #2d3748; }
+        .cert-date { font-size: 0.9rem; color: #a0aec0; margin-top: 15px; }
 
-        .cert-buttons { display: flex; justify-content: center; gap: 15px; margin-top: 30px; }
-        .btn-close, .btn-save { padding: 12px 30px; border: none; border-radius: 10px; cursor: pointer; font-weight: 600; transition: 0.3s; flex: 1; max-width: 150px; }
+        .cert-buttons { display: flex; justify-content: center; gap: 10px; margin-top: 25px; }
+        .btn-close, .btn-save { padding: 12px 20px; border: none; border-radius: 10px; cursor: pointer; font-weight: 600; transition: 0.3s; flex: 1; font-size: 0.9rem; }
         .btn-close { background: #e2e8f0; color: #4a5568; }
         .btn-save { background: var(--primary); color: white; }
-        .btn-save:hover { background: #003300; transform: scale(1.05); }
 
         .btn-tts {
             background: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; padding: 10px 16px; border-radius: 10px;
-            font-size: 0.9rem; cursor: pointer; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;
-            font-weight: 600; transition: 0.2s;
+            font-size: 0.85rem; cursor: pointer; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;
+            font-weight: 600;
         }
-        .btn-tts:hover { background: #e2e8f0; transform: scale(1.02); }
     </style>
 </head>
 <body>
@@ -187,12 +173,12 @@
 
     <section id="edu-section">
         <div style="text-align: center; margin-bottom: 35px;">
-            <h2 id="txt-edu-welcome" style="color: var(--primary); font-size: 1.6rem; margin-bottom: 12px;"></h2>
-            <p id="txt-edu-desc" style="color: #4a5568; font-size: 1.1rem; word-break: keep-all; line-height: 1.7;"></p>
-            <div style="background:#e2e8f0; height:14px; border-radius:10px; overflow:hidden; margin:25px 0;">
+            <h2 id="txt-edu-welcome" style="color: var(--primary); font-size: 1.4rem; margin-bottom: 12px;"></h2>
+            <p id="txt-edu-desc" style="color: #4a5568; font-size: 1rem; word-break: keep-all;"></p>
+            <div style="background:#e2e8f0; height:12px; border-radius:10px; overflow:hidden; margin:25px 0;">
                 <div id="progress-fill" style="width:0%; height:100%; background:var(--primary); transition:0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);"></div>
             </div>
-            <p id="txt-progress" style="font-weight: 800; color: var(--primary); font-size: 1.1rem;"></p>
+            <p id="txt-progress" style="font-weight: 800; color: var(--primary);"></p>
         </div>
         <div id="edu-list"></div>
         <button id="issue-btn" class="btn-main" style="display:none; background:var(--accent); color: #4e342e;" onclick="showFancyCert()">🏆 교육 이수 상장 확인</button>
@@ -206,7 +192,7 @@
         <div class="cert-body" id="cert-ui-body"></div>
         <div class="cert-msg">" <span id="cert-ui-msg"></span> "</div>
         <div class="cert-footer" id="cert-ui-footer">우리집 안전 보안관 본부</div>
-        <div class="cert-date" id="cert-ui-date">2026. 03. 29</div>
+        <div class="cert-date" id="cert-ui-date"></div>
         <div class="cert-buttons">
             <button class="btn-save" id="btn-save-ui" onclick="saveCertAsImage()">저장하기</button>
             <button class="btn-close" id="btn-close-ui" onclick="closeCert()">닫기</button>
@@ -236,7 +222,7 @@
             ttsLang: "ko-KR",
             btnSave: "이미지 저장", btnClose: "닫기",
             eduList: [
-                { id: 1, title: "[분석] 2026년 대한민국 사기 트렌드 요약", content: "2026년 한국의 사기 트렌드는 '초정밀 하이브리드화'입니다. AI 딥페이크로 목소리와 얼굴을 똑같이 흉내 낸 가족 사칭 사기가 주를 이룹니다. 특히 '로맨스 스캠'과 '투자 사기'가 결합되어 피해자의 심리와 자산을 동시에 공략하는 정교한 수법이 기승을 부리고 있으니 각별한 주의가 필요합니다.", date: "2026.01.01" },
+                { id: 1, title: "[분석] 2026년 대한민국 사기 트렌드 요약", content: "2026년 한국의 사기 트렌드는 '초정밀 하이브리드화'입니다. AI 딥페이크로 목소리와 얼굴을 똑같이 흉내 낸 가족 사칭 사기가 주를 이룹니다. 특히 '로맨스 스캠'과 '투자 사기'가 결합되어 피해자의 심리와 자산을 동시에 공략하는 정교한 수법이 기승을 부리고 있으니 각별한 주의가 필요합니다. 모르는 링크나 과도한 수익 약속은 무조건 의심하십시오.", date: "2026.01.01" },
                 { id: 2, title: "[유튜브] 2026년형 보이스피싱 신종 수법과 돈 돌려받는 법", url: "https://www.youtube.com/results?search_query=2026년+보이스피싱+신종수법", date: "2026.01.10" },
                 { id: 3, title: "[유튜브] [속보] 법무부, '120억 로맨스 스캠 부부' 송환 요청", url: "https://www.youtube.com/results?search_query=120억+로맨스+스캠+부부+송환", date: "2024.03.15" }
             ]
@@ -267,13 +253,13 @@
             ]
         },
         ja: {
-            title: "🛡️ 我が家の安全保安官", subtitle: "大切な家族のための防犯 education",
+            title: "🛡️ 我が家の安全保安官", subtitle: "大切な家族のための防범 education",
             setupH2: "1. 教育대상 設定", labelTarget: "誰に送りますか？", optParent: "ご両親へ", optChild: "お子様へ", optSpouse: "配偶者へ",
             labelName: "お名前", labelMsg: "愛のメッセージ", btnGenerate: "教育링크를 작성",
             placeholderName: "名前を入力してください", placeholderMsg: "詐欺에遭わず、幸せ에暮らそう！",
             linkReady: "링크가 준비되었습니다!", btnCopy: "コピーして送信",
             eduWelcome: "安全保安官様、ようこそ！", 
-            eduDesc: "本教育は毎月の新型詐欺トレンド를分析し、教育することを目的としています。以下の教育を完了してください。", 
+            eduDesc: "本教育は毎月の新型詐欺トレンド를分析し, 教育することを目的としています. 以下の教育を完了してください.", 
             progress: "進捗",
             certTitle: "修 了 証", 
             certBody: "上記の安全保安官は, 家族が丹精込めて準備した防犯教育課程を誠実に修了したため, 本証を授与します.",
@@ -298,15 +284,13 @@
     function initBackground() {
         const bg = document.getElementById('bg-badges');
         const badgeSvg = `<svg viewBox="0 0 24 24" width="80" height="80" fill="currentColor"><path d="M12 1L9 9H1L7 14L4 22L12 17L20 22L17 14L23 9H15L12 1Z"/></svg>`;
-        for(let i=0; i<15; i++) {
+        for(let i=0; i<12; i++) {
             const div = document.createElement('div');
             div.className = 'bg-badge';
             div.innerHTML = badgeSvg;
             div.style.left = Math.random() * 100 + 'vw';
             div.style.top = Math.random() * 100 + 'vh';
-            div.style.animationDelay = (Math.random() * 20) + 's';
-            div.style.animationDuration = (15 + Math.random() * 15) + 's';
-            div.style.transform = `scale(${0.5 + Math.random()})`;
+            div.style.animationDelay = (Math.random() * 10) + 's';
             bg.appendChild(div);
         }
     }
@@ -388,7 +372,7 @@
         window.speechSynthesis.cancel();
         const utterance = new SpeechSynthesisUtterance(text);
         utterance.lang = langData[currentLang].ttsLang;
-        utterance.pitch = 1.15; utterance.rate = 0.95;
+        utterance.pitch = 1.1; utterance.rate = 0.95;
         window.speechSynthesis.speak(utterance);
     }
 
@@ -423,20 +407,32 @@
     async function saveCertAsImage() {
         const content = document.getElementById('cert-content');
         const buttons = document.querySelector('.cert-buttons');
-        buttons.style.display = 'none'; 
+        buttons.style.visibility = 'hidden'; 
         
-        const canvas = await html2canvas(content, { 
-            scale: 3, // 고화질 저장
-            backgroundColor: "#ffffff",
-            useCORS: true 
-        });
-        
-        const link = document.createElement('a');
-        link.download = `Family_Safety_Sheriff_Award.png`;
-        link.href = canvas.toDataURL('image/png');
-        link.click();
-        
-        buttons.style.display = 'flex'; 
+        try {
+            const canvas = await html2canvas(content, { 
+                scale: 3, 
+                backgroundColor: "#ffffff",
+                useCORS: true,
+                logging: false
+            });
+            
+            canvas.toBlob((blob) => {
+                const url = window.URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = `Family_Safety_Award_${new Date().getTime()}.png`;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                window.URL.revokeObjectURL(url);
+                alert(currentLang === 'ko' ? "이미지가 다운로드되었습니다. 사진첩을 확인해 주세요!" : "Image downloaded. Please check your gallery!");
+            }, 'image/png');
+        } catch (e) {
+            alert("Error saving image.");
+        } finally {
+            buttons.style.visibility = 'visible'; 
+        }
     }
 
     function closeCert() { document.getElementById('cert-modal').style.display = 'none'; }
