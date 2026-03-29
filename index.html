@@ -66,7 +66,7 @@
         .edu-card.done { border-left-color: var(--primary); background: #e8f5e9 !important; border-color: #c8e6c9; }
         
         .edu-date { font-size: 0.8rem; color: #888; margin-bottom: 5px; }
-        .edu-btn { display: block; margin-top: 10px; padding: 12px; background: #444; color: white; text-align: center; text-decoration: none; border-radius: 8px; font-weight: bold; }
+        .edu-btn { display: block; margin-top: 10px; padding: 12px; background: #444; color: white; text-align: center; text-decoration: none; border-radius: 8px; font-weight: bold; border: none; width: 100%; cursor: pointer; }
         .done .edu-btn { background: var(--primary); }
 
         #link-display { display: none; margin-top: 20px; padding: 15px; background: #e8f5e9; border: 2px dashed var(--primary); border-radius: 12px; text-align: center; }
@@ -80,7 +80,6 @@
 <div id="lang-bar">
     <button id="btn-ko" class="lang-btn active" onclick="changeLang('ko')">한국어</button>
     <button id="btn-en" class="lang-btn" onclick="changeLang('en')">English</button>
-    <button id="btn-zh" class="lang-btn" onclick="changeLang('zh')">中文</button>
     <button id="btn-ja" class="lang-btn" onclick="changeLang('ja')">日本語</button>
 </div>
 
@@ -163,8 +162,14 @@
             pdfName: "성명", pdfDate: "발급일", pdfFooter: "우리집 안전 보안관 본부",
             eduBtn: "내용 확인하기", alertLink: "링크가 복사되었습니다!",
             issueBtn: "🏆 수료증 발급 (PDF)",
+            trendConfirm: "분석 내용 확인 완료",
             eduList: [
-                { id: 1, title: "[뉴스] 로맨스스캠·노쇼사기 탐지…전 금융권 '보이스피싱 협의체' 가동 (뉴스1)", url: "https://www.news1.kr/society/court-prosecution/6097147", date: "2024.03.28" },
+                { 
+                    id: 1, 
+                    title: "[분석] 2026년 대한민국 사기 트렌드 요약", 
+                    content: "2026년 한국의 사기 트렌드는 '초정밀 하이브리드화'입니다. AI 딥페이크로 목소리와 얼굴을 똑같이 흉내 낸 가족 사칭 사기가 주를 이룹니다. 특히 소셜 미디어를 통해 친분을 쌓는 '로맨스 스캠'과 가짜 가상화폐 거래소를 이용한 '투자 사기'가 결합되어, 피해자의 심리와 자산을 동시에 공략하는 정교한 수법이 기승을 부리고 있으니 각별한 주의가 필요합니다.",
+                    date: "2026.01.01" 
+                },
                 { id: 2, title: "[유튜브] 2026년형 보이스피싱 신종 수법과 돈 돌려받는 법 (변호사 설명 및 실제 사례)", url: "https://www.youtube.com/results?search_query=2026년+보이스피싱+신종수법", date: "2026.01.10" },
                 { id: 3, title: "[유튜브] [속보] 법무부, '120억 로맨스 스캠 부부' 송환 요청 (연합뉴스TV)", url: "https://www.youtube.com/results?search_query=120억+로맨스+스캠+부부+송환", date: "2024.03.15" }
             ]
@@ -182,46 +187,39 @@
             pdfName: "Name", pdfDate: "Date", pdfFooter: "Family Safety Sheriff Center",
             eduBtn: "View Content", alertLink: "Link copied to clipboard!",
             issueBtn: "🏆 Issue Certificate (PDF)",
+            trendConfirm: "Trend Analysis Confirmed",
             eduList: [
-                { id: 1, title: "[News] 2026 Romance Scams are Almost Impossible to Spot (AI Fraud Analysis)", url: "https://www.ftc.gov/news-events/news/press-releases/2024/02/ftc-data-shows-romance-scam-losses-hit-11-billion-2023", date: "2026.02.14" },
+                { 
+                    id: 1, 
+                    title: "[Analysis] 2026 Global Fraud Trends Summary", 
+                    content: "The 2026 fraud landscape is dominated by AI-driven technologies. 'Voice Cloning' allows scammers to replicate anyone's voice with just seconds of audio, while 'Deepfake FaceTime' calls make impersonation incredibly convincing. We are seeing a significant rise in celebrity-impersonated Love Scams and highly convincing automated phishing attempts using large language models. Always verify via a secondary channel.",
+                    date: "2026.01.01" 
+                },
                 { id: 2, title: "[YouTube] THESE 5 Scams Are EXPLODING in 2026 — Don't Get Hit (Rossen Reports)", url: "https://www.youtube.com/results?search_query=Rossen+Reports+Scams+2026", date: "2026.01.05" },
                 { id: 3, title: "[YouTube] The Call That Sounds Like Your Kid (But Isn't) (AI Voice Cloning Protection)", url: "https://www.youtube.com/results?search_query=AI+voice+cloning+scam+protection", date: "2025.11.20" }
             ]
         },
-        zh: {
-            title: "🛡️ 居家安全保安官", subtitle: "为挚爱家人量身定制的安全教育",
-            setupH2: "1. 设置教育对象", labelTarget: "发送给谁？", optParent: "送给父母", optChild: "送给子女", optSpouse: "送给配偶",
-            labelName: "接收人姓名", labelMsg: "爱心寄语", btnGenerate: "生成教育链接",
-            placeholderName: "请输入姓名", placeholderMsg: "愿您远离诈骗，幸福生活！",
-            linkReady: "链接已就绪！", btnCopy: "复制链接并发送",
-            eduWelcome: "欢迎，保安官！", 
-            eduDesc: "请完成家人为您准备的安全教育课程，警惕新型网络诈骗。", 
-            progress: "进度",
-            certTitle: "结业证书", certBody: "鉴于您圆满完成了家人准备的安全教育课程，特发此证，以资鼓励。",
-            pdfName: "姓名", pdfDate: "签发日期", pdfFooter: "居家安全保安官总部",
-            eduBtn: "查看内容", alertLink: "链接已复制！",
-            issueBtn: "🏆 颁发证书 (PDF)",
-            eduList: [
-                { id: 1, title: "[新闻] 防范“杀猪盘”与投资诈骗提示", url: "http://www.news.cn/legal/20240214/a123456789.html", date: "2024.02.14" },
-                { id: 2, title: "[视频] 揭秘2026年新型电信诈骗手段", url: "https://news.cctv.com/2024/03/05/ARTI12345678.shtml", date: "2026.03.05" },
-                { id: 3, title: "[视频] 警惕AI换脸与语音克隆诈骗", url: "https://www.thepaper.cn/newsDetail_forward_23215647", date: "2025.12.10" }
-            ]
-        },
         ja: {
-            title: "🛡️ 我が家の安全保安官", subtitle: "大切な家族のための防犯教育",
-            setupH2: "1. 教育対象の設定", labelTarget: "誰에 보낼까요?", optParent: "ご両親へ", optChild: "お子様へ", optSpouse: "配偶者へ",
+            title: "🛡️ 我が家の安全保安官", subtitle: "大切な家族のための防犯 education",
+            setupH2: "1. 教育対象の設定", labelTarget: "誰に送りますか？", optParent: "ご両親へ", optChild: "お子様へ", optSpouse: "配偶者へ",
             labelName: "お名前", labelMsg: "愛のメッセージ", btnGenerate: "教育リンクを作成",
-            placeholderName: "名前を入力してください", placeholderMsg: "詐欺에遭わず、幸せ에暮らそう！",
-            linkReady: "링크가 준비되었습니다!", btnCopy: "コピーして送信",
+            placeholderName: "名前を入力してください", placeholderMsg: "詐欺に遭わず、幸せに暮らそう！",
+            linkReady: "リンクが準備されました！", btnCopy: "コピーして送信",
             eduWelcome: "ようこそ、保安官様！", 
             eduDesc: "SNS型投資・ロマンス詐欺が急増しています。大切な資産を守るため、以下の教育を完了してください。", 
             progress: "進捗",
-            certTitle: "修了証", certBody: "あなたは家族が用意した防犯教育課程을誠実に修了したため、本証을授与します。",
+            certTitle: "修了証", certBody: "あなたは家族が用意した防犯教育課程を誠実に修了したため、本証を授与します。",
             pdfName: "氏名", pdfDate: "発行日", pdfFooter: "我が家の安全保安官本部",
-            eduBtn: "ニュース/動画を見る", alertLink: "링크를 복사했습니다!",
+            eduBtn: "ニュース/動画を見る", alertLink: "リンクをコピーしました！",
             issueBtn: "🏆 修了証を発行 (PDF)",
+            trendConfirm: "トレンド分析を確認済み",
             eduList: [
-                { id: 1, title: "[ニュース] ロマンス詐欺 ５０代男性２１５２万円被害 (読売新聞)", url: "https://www.yomiuri.co.jp/national/20240307-OYT1T50154/", date: "2024.03.07" },
+                { 
+                    id: 1, 
+                    title: "[分析] 2026年 日本の詐欺トレンド要約", 
+                    content: "2026年の日本では、SNSを通じた投資勧誘とロマンス詐欺が高度に融合した手法が急増しています. 犯人は半年以上の時間をかけて信頼関係を築き, 巧妙な偽の投資プラットフォームへ誘導します. また, AIを用いた『なりすまし』電話や, データSIMの本人確認を潜り抜ける手口も確認されています. 特に『あなたに会いに日本に行きます』といった甘い言葉には要注意です.",
+                    date: "2026.01.01" 
+                },
                 { id: 2, title: "[ニュース] SNS詐欺対策、データSIMの本人確認義務づけ (日本政府対応)", url: "https://www.nikkei.com/article/DGXZQOUA123450S4A310C2000000/", date: "2024.03.12" },
                 { id: 3, title: "[YouTube] 「あなたに会いに日本に行きます」投資名目で2400万円をだまし取られる (被害事例)", url: "https://www.youtube.com/results?search_query=ロマンス詐欺+2400万円+被害", date: "2024.02.20" }
             ]
@@ -290,11 +288,21 @@
             const isDone = localStorage.getItem(`done_${item.id}`);
             const div = document.createElement('div');
             div.className = `edu-card ${isDone ? 'done' : ''}`;
-            div.innerHTML = `
-                <div class="edu-date">${item.date}</div>
-                <span style="font-weight:bold;">${item.title}</span>
-                <a href="${item.url}" target="_blank" class="edu-btn" onclick="done(${item.id})">${d.eduBtn}</a>
-            `;
+            
+            if (item.id === 1) { // 첫 번째 항목: 트렌드 분석 요약글
+                div.innerHTML = `
+                    <div class="edu-date">${item.date}</div>
+                    <span style="font-weight:bold; display:block; margin-bottom:10px;">${item.title}</span>
+                    <p style="font-size:0.9rem; color:#444; background:#f9f9f9; padding:12px; border-radius:8px; border:1px solid #eee; margin-bottom:10px;">${item.content}</p>
+                    <button class="edu-btn" onclick="done(${item.id})">${isDone ? d.trendConfirm : d.eduBtn}</button>
+                `;
+            } else { // 나머지 항목: 기존 링크 방식
+                div.innerHTML = `
+                    <div class="edu-date">${item.date}</div>
+                    <span style="font-weight:bold;">${item.title}</span>
+                    <a href="${item.url}" target="_blank" class="edu-btn" onclick="done(${item.id})">${d.eduBtn}</a>
+                `;
+            }
             list.appendChild(div);
         });
         updateStatus();
