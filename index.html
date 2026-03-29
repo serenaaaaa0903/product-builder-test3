@@ -21,10 +21,9 @@
             line-height: 1.6;
             color: #2c3e50;
             overflow-x: hidden;
-            background: #0f2027; /* Fallback */
+            background: #0f2027;
         }
 
-        /* [움직이는 보안관 배경 시스템] */
         .bg-wrapper {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: linear-gradient(135deg, #1b5e20 0%, #002f00 100%);
@@ -120,6 +119,7 @@
             background-image: radial-gradient(circle at 2px 2px, #f7f7f7 1px, transparent 0);
             background-size: 40px 40px;
         }
+        @keyframes modalUp { from { transform: translateY(80px) scale(0.9); opacity: 0; } to { transform: translateY(0) scale(1); opacity: 1; } }
         
         .cert-title { font-size: 3rem; color: #b8860b; font-weight: 800; margin-bottom: 30px; letter-spacing: 6px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
         .cert-name { font-size: 1.8rem; font-weight: 700; margin-bottom: 35px; border-bottom: 3px solid #b8860b; display: inline-block; padding: 0 40px; color: #1a202c; }
@@ -127,6 +127,12 @@
         .cert-msg { background: #fffaf0; padding: 25px; border-radius: 16px; border: 1px solid #feebc8; margin-bottom: 40px; font-style: italic; color: #744210; font-weight: 500; font-size: 1.1rem; }
         .cert-footer { font-size: 1.4rem; font-weight: 800; color: #2d3748; }
         .cert-date { font-size: 1.1rem; color: #a0aec0; margin-top: 20px; }
+
+        .cert-buttons { display: flex; justify-content: center; gap: 15px; margin-top: 30px; }
+        .btn-close, .btn-save { padding: 12px 30px; border: none; border-radius: 10px; cursor: pointer; font-weight: 600; transition: 0.3s; flex: 1; max-width: 150px; }
+        .btn-close { background: #e2e8f0; color: #4a5568; }
+        .btn-save { background: var(--primary); color: white; }
+        .btn-save:hover { background: #003300; transform: scale(1.05); }
 
         .btn-tts {
             background: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; padding: 10px 16px; border-radius: 10px;
@@ -138,7 +144,6 @@
 </head>
 <body>
 
-<!-- 움직이는 배경 레이어 -->
 <div class="bg-wrapper" id="bg-badges"></div>
 
 <div id="lang-bar">
@@ -202,7 +207,10 @@
         <div class="cert-msg">" <span id="cert-ui-msg"></span> "</div>
         <div class="cert-footer" id="cert-ui-footer">우리집 안전 보안관 본부</div>
         <div class="cert-date" id="cert-ui-date">2026. 03. 29</div>
-        <button class="btn-close" onclick="closeCert()">닫기</button>
+        <div class="cert-buttons">
+            <button class="btn-save" id="btn-save-ui" onclick="saveCertAsImage()">저장하기</button>
+            <button class="btn-close" id="btn-close-ui" onclick="closeCert()">닫기</button>
+        </div>
     </div>
 </div>
 
@@ -226,6 +234,7 @@
             trendConfirm: "분석 내용 확인 완료",
             readAloud: "🔊 분석 내용 읽어주기",
             ttsLang: "ko-KR",
+            btnSave: "이미지 저장", btnClose: "닫기",
             eduList: [
                 { id: 1, title: "[분석] 2026년 대한민국 사기 트렌드 요약", content: "2026년 한국의 사기 트렌드는 '초정밀 하이브리드화'입니다. AI 딥페이크로 목소리와 얼굴을 똑같이 흉내 낸 가족 사칭 사기가 주를 이룹니다. 특히 '로맨스 스캠'과 '투자 사기'가 결합되어 피해자의 심리와 자산을 동시에 공략하는 정교한 수법이 기승을 부리고 있으니 각별한 주의가 필요합니다.", date: "2026.01.01" },
                 { id: 2, title: "[유튜브] 2026년형 보이스피싱 신종 수법과 돈 돌려받는 법", url: "https://www.youtube.com/results?search_query=2026년+보이스피싱+신종수법", date: "2026.01.10" },
@@ -250,6 +259,7 @@
             trendConfirm: "Confirmed",
             readAloud: "🔊 Read Aloud",
             ttsLang: "en-US",
+            btnSave: "Save Image", btnClose: "Close",
             eduList: [
                 { id: 1, title: "[Analysis] 2026 Global Fraud Trends", content: "The 2026 fraud landscape is dominated by AI-driven technologies. 'Voice Cloning' allows scammers to replicate voices with seconds of audio, while 'Deepfake FaceTime' makes impersonation incredibly convincing. Celebrity-impersonated Love Scams and fake investment portals are also at an all-time high.", date: "2026.01.01" },
                 { id: 2, title: "[YouTube] THESE 5 Scams Are EXPLODING in 2026", url: "https://www.youtube.com/results?search_query=Rossen+Reports+Scams+2026", date: "2026.01.05" },
@@ -257,13 +267,13 @@
             ]
         },
         ja: {
-            title: "🛡️ 我が家の安全保安관", subtitle: "大切な家族のための防犯 education",
+            title: "🛡️ 我が家の安全保安官", subtitle: "大切な家族のための防犯 education",
             setupH2: "1. 教育대상 設定", labelTarget: "誰に送りますか？", optParent: "ご両親へ", optChild: "お子様へ", optSpouse: "配偶者へ",
             labelName: "お名前", labelMsg: "愛のメッセージ", btnGenerate: "教育링크를 작성",
             placeholderName: "名前を入力してください", placeholderMsg: "詐欺에遭わず、幸せ에暮らそう！",
             linkReady: "링크가 준비되었습니다!", btnCopy: "コピーして送信",
             eduWelcome: "安全保安官様、ようこそ！", 
-            eduDesc: "本教育は毎月の新型詐欺トレンドを分析し、教育することを目的としています。以下の教育を完了してください。", 
+            eduDesc: "本教育は毎月の新型詐欺トレンド를分析し、教育することを目的としています。以下の教育を完了してください。", 
             progress: "進捗",
             certTitle: "修 了 証", 
             certBody: "上記の安全保安官は, 家族が丹精込めて準備した防犯教育課程を誠実に修了したため, 本証を授与します.",
@@ -274,8 +284,9 @@
             trendConfirm: "確認済み",
             readAloud: "🔊 内容を読み上げる",
             ttsLang: "ja-JP",
+            btnSave: "画像を保存", btnClose: "閉じる",
             eduList: [
-                { id: 1, title: "[分析] 2026년 日本の詐欺トレンド", content: "2026年の日本では, SNSを通じた投資勧誘とロマンス詐欺가高度に融合한手法가급증しています. 犯人は長い時間をかけて信頼관계를築기, 巧妙な偽의投資プラットフォームへの誘導도확인されています. AIを用いた『なりすまし』電話にも注意が必要です.", date: "2026.01.01" },
+                { id: 1, title: "[分析] 2026년 日本の詐欺トレンド", content: "2026年の日本では, SNSを通じた投資勧誘とロマンス詐欺가高度に融合한手法가급증しています. 犯人は長い時間をかけて信頼관계를築기, 巧妙な偽의投資プラットフォームへの誘導도확인されています.", date: "2026.01.01" },
                 { id: 2, title: "[뉴스] SNS詐欺対策、SIM本人確認義務づけ", url: "https://www.nikkei.com/article/DGXZQOUA123450S4A310C2000000/", date: "2024.03.12" },
                 { id: 3, title: "[YouTube] あなた에会いに日本に行きます (投資詐欺)", url: "https://www.youtube.com/results?search_query=ロマンス詐欺+2400万円+被害", date: "2024.02.20" }
             ]
@@ -284,7 +295,6 @@
 
     let currentLang = 'ko';
 
-    // 배경 보안관 배지 생성 로직
     function initBackground() {
         const bg = document.getElementById('bg-badges');
         const badgeSvg = `<svg viewBox="0 0 24 24" width="80" height="80" fill="currentColor"><path d="M12 1L9 9H1L7 14L4 22L12 17L20 22L17 14L23 9H15L12 1Z"/></svg>`;
@@ -324,6 +334,8 @@
         document.getElementById('txt-btn-copy').innerText = d.btnCopy;
         document.getElementById('txt-edu-desc').innerText = d.eduDesc;
         document.getElementById('issue-btn').innerText = d.issueBtn;
+        document.getElementById('btn-save-ui').innerText = d.btnSave;
+        document.getElementById('btn-close-ui').innerText = d.btnClose;
 
         const name = new URLSearchParams(window.location.search).get('name') || "";
         document.getElementById('txt-edu-welcome').innerText = (name ? name : "") + d.eduWelcome;
@@ -406,6 +418,25 @@
         document.getElementById('cert-ui-footer').innerText = d.certFooter;
         document.getElementById('cert-ui-date').innerText = new Date().toLocaleDateString();
         document.getElementById('cert-modal').style.display = 'flex';
+    }
+
+    async function saveCertAsImage() {
+        const content = document.getElementById('cert-content');
+        const buttons = document.querySelector('.cert-buttons');
+        buttons.style.display = 'none'; 
+        
+        const canvas = await html2canvas(content, { 
+            scale: 3, // 고화질 저장
+            backgroundColor: "#ffffff",
+            useCORS: true 
+        });
+        
+        const link = document.createElement('a');
+        link.download = `Family_Safety_Sheriff_Award.png`;
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+        
+        buttons.style.display = 'flex'; 
     }
 
     function closeCert() { document.getElementById('cert-modal').style.display = 'none'; }
