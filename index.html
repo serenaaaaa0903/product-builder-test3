@@ -2,339 +2,350 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>우리집 안전 보안관 - 맞춤형 사기 예방 교육</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>우리집 안전 보안관 - 다국어 지원 시스템</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <style>
         :root {
             --primary: #2e7d32;
             --accent: #b59410;
-            --bg: #f0f2f0;
+            --bg: #f4f7f4;
             --white: #ffffff;
-            --text: #212121;
         }
-
-        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
         body {
             font-family: 'Pretendard', 'Malgun Gothic', sans-serif;
             background-color: var(--bg);
             margin: 0; padding: 0;
             line-height: 1.6;
-            color: var(--text);
         }
 
-        /* 헤더 디자인 - 모바일 가독성 최적화 */
+        #lang-bar {
+            background: #1b5e20;
+            padding: 10px;
+            text-align: right;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+        .lang-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 1px solid white;
+            padding: 5px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+        .lang-btn.active {
+            background: white;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
         header {
             background-color: var(--primary);
             color: white;
-            padding: 40px 20px;
+            padding: 30px 20px;
             text-align: center;
-            border-bottom-left-radius: 25px;
-            border-bottom-right-radius: 25px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
         }
 
-        header h1 { font-size: 1.8rem; margin: 0; word-break: keep-all; }
-        header p { font-size: 1rem; opacity: 0.9; margin: 10px 0 0; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
 
-        .container { 
-            width: 100%; 
-            max-width: 600px; 
-            margin: 0 auto; 
-            padding: 20px; 
-        }
-
-        /* [카드 공통 스타일] */
-        .glass-card {
-            background: var(--white);
-            padding: 25px;
-            border-radius: 20px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.05);
-            margin-bottom: 20px;
-        }
-
-        /* [섹션 1: 설정 화면] */
-        .form-group { margin-bottom: 18px; }
-        label { display: block; font-weight: bold; margin-bottom: 8px; font-size: 1rem; color: #444; }
-        input, textarea, select { 
-            width: 100%; 
-            padding: 14px; 
-            border: 2px solid #eee; 
-            border-radius: 12px; 
-            font-size: 1rem; 
-            background: #fdfdfd;
-            transition: border-color 0.3s;
-        }
-        input:focus, textarea:focus { border-color: var(--primary); outline: none; }
+        section { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; font-weight: bold; margin-bottom: 10px; }
+        input, textarea, select { width: 100%; padding: 15px; border: 2px solid #ddd; border-radius: 12px; box-sizing: border-box; }
+        .btn-main { width: 100%; padding: 20px; background: var(--primary); color: white; border: none; border-radius: 15px; font-size: 1.2rem; font-weight: bold; cursor: pointer; margin-top: 10px; }
         
-        .btn-main { 
-            width: 100%; 
-            padding: 18px; 
-            background: var(--primary); 
-            color: white; 
-            border: none; 
-            border-radius: 15px; 
-            font-size: 1.2rem; 
-            font-weight: bold; 
-            cursor: pointer;
-            transition: transform 0.1s;
-        }
-        .btn-main:active { transform: scale(0.98); }
-
-        #link-display { 
-            display: none; 
-            margin-top: 25px; 
-            padding: 20px; 
-            background: #e8f5e9; 
-            border-radius: 15px; 
-            border: 2px dashed var(--primary); 
-            text-align: center; 
-        }
-
-        /* [섹션 2: 교육 화면] */
         #edu-section { display: none; }
-        .progress-bar { height: 16px; background: #e0e0e0; border-radius: 10px; overflow: hidden; margin: 15px 0; }
-        #progress-fill { height: 100%; width: 0%; background: var(--primary); transition: width 0.5s ease; }
-
-        .edu-card { 
-            background: white; 
-            padding: 20px; 
-            border-radius: 18px; 
-            margin-bottom: 15px; 
-            border-left: 6px solid #ddd; 
-            position: relative; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-        }
-        .edu-card.done { border-left-color: var(--primary); background-color: #f1f8e9; }
+        .edu-card { border-radius: 15px; padding: 20px; margin-bottom: 15px; border: 1px solid #eee; position: relative; border-left: 8px solid #ccc; transition: 0.3s; }
         
-        .tag { font-size: 0.8rem; font-weight: bold; color: var(--primary); background: #e8f5e9; padding: 4px 10px; border-radius: 8px; margin-bottom: 8px; display: inline-block; }
-        .card-title { font-size: 1.15rem; font-weight: bold; margin-bottom: 15px; display: block; color: #333; word-break: keep-all; }
+        /* 교육 완료 시 초록색 스타일 */
+        .edu-card.done { border-left-color: var(--primary); background: #e8f5e9 !important; border-color: #c8e6c9; }
         
-        .edu-btn { 
-            display: block; 
-            width: 100%; 
-            padding: 14px; 
-            background: #555; 
-            color: white; 
-            text-decoration: none; 
-            text-align: center; 
-            border-radius: 12px; 
-            font-weight: bold; 
-        }
-        .edu-card.done .edu-btn { background: var(--primary); }
+        .edu-date { font-size: 0.8rem; color: #888; margin-bottom: 5px; }
+        .edu-btn { display: block; margin-top: 10px; padding: 12px; background: #444; color: white; text-align: center; text-decoration: none; border-radius: 8px; font-weight: bold; }
+        .done .edu-btn { background: var(--primary); }
 
-        #issue-btn { 
-            display: none; 
-            width: 100%; 
-            padding: 22px; 
-            background: var(--accent); 
-            color: white; 
-            border: none; 
-            border-radius: 15px; 
-            font-size: 1.3rem; 
-            font-weight: bold; 
-            margin-top: 10px;
-            box-shadow: 0 8px 15px rgba(181, 148, 16, 0.3);
-        }
+        #link-display { display: none; margin-top: 20px; padding: 15px; background: #e8f5e9; border: 2px dashed var(--primary); border-radius: 12px; text-align: center; }
 
-        /* [PDF 수료증 템플릿 - 숨김 영역] */
-        #cert-template {
-            display: none; width: 700px; padding: 50px; border: 15px double var(--accent); background: white;
-            text-align: center; position: fixed; left: -9999px; top: 0;
-        }
-
-        /* 모바일용 미디어 쿼리 */
-        @media (max-width: 480px) {
-            header h1 { font-size: 1.5rem; }
-            .container { padding: 15px; }
-            .card-title { font-size: 1.05rem; }
-            .btn-main { font-size: 1.1rem; }
-        }
+        #cert-wrapper { position: absolute; left: -9999px; top: -9999px; }
+        #cert-template { width: 800px; padding: 60px; border: 20px double var(--accent); background: white; text-align: center; color: #212121; }
     </style>
 </head>
 <body>
 
+<div id="lang-bar">
+    <button id="btn-ko" class="lang-btn active" onclick="changeLang('ko')">한국어</button>
+    <button id="btn-en" class="lang-btn" onclick="changeLang('en')">English</button>
+    <button id="btn-zh" class="lang-btn" onclick="changeLang('zh')">中文</button>
+    <button id="btn-ja" class="lang-btn" onclick="changeLang('ja')">日本語</button>
+</div>
+
 <header>
-    <h1 id="header-title">🛡️ 우리집 안전 보안관</h1>
-    <p id="header-sub">가족의 사랑이 담긴 예방 교육</p>
+    <h1 id="txt-title">🛡️ 우리집 안전 보안관</h1>
+    <p id="txt-subtitle">사랑하는 가족을 위한 맞춤 교육</p>
 </header>
 
 <div class="container">
-    <section id="setup-section" class="glass-card">
-        <h3 style="margin-top:0;">1. 받는 분 맞춤 설정</h3>
+    <section id="setup-section">
+        <h2 id="txt-setup-h2">1. 교육 대상 설정</h2>
         <div class="form-group">
-            <label>어떤 분에게 보낼까요?</label>
+            <label id="txt-label-target">누구에게 보낼까요?</label>
             <select id="target_type">
-                <option value="parent">부모님 (효도 보안관)</option>
-                <option value="child">자녀 (청년 보안관)</option>
-                <option value="spouse">배우자 (수호 보안관)</option>
+                <option value="parent" id="txt-opt-parent">부모님께 (효도 보안관)</option>
+                <option value="child" id="txt-opt-child">자녀에게 (청년 보안관)</option>
+                <option value="spouse" id="txt-opt-spouse">배우자에게 (파트너 보안관)</option>
             </select>
         </div>
         <div class="form-group">
-            <label>받는 분 성함</label>
-            <input type="text" id="p_name" placeholder="예: 김순자">
+            <label id="txt-label-name">받는 분 성함</label>
+            <input type="text" id="p_name" placeholder="성함을 입력하세요">
         </div>
         <div class="form-group">
-            <label>마음을 전하는 한마디</label>
-            <textarea id="p_msg" rows="3" placeholder="예: 엄마, 이거 보시고 사기 걱정 없이 행복하게 살자!"></textarea>
+            <label id="txt-label-msg">사랑의 메시지</label>
+            <textarea id="p_msg" placeholder="사기 당하지 말고 행복하게 살자!"></textarea>
         </div>
-        <button class="btn-main" onclick="generateEduLink()">교육 링크 만들기</button>
+        <button class="btn-main" id="txt-btn-generate" onclick="generateLink()">교육 링크 생성</button>
 
         <div id="link-display">
-            <p style="font-weight:bold; color:var(--primary); margin-bottom:15px;">링크가 준비되었습니다!</p>
-            <button class="btn-main" style="background:#fee500; color:#3c1e1e;" onclick="copyLink()">카톡 전송용 링크 복사</button>
-            <p id="final-url" style="font-size:0.75rem; color:#999; word-break:break-all; margin-top:15px;"></p>
+            <p id="txt-link-ready" style="font-weight:bold; color:var(--primary);">링크가 준비되었습니다!</p>
+            <button class="btn-main" style="background:#fee500; color:#3c1e1e;" id="txt-btn-copy" onclick="copyUrl()">링크 복사 후 카톡 전송</button>
+            <p id="final-url" style="font-size:0.75rem; color:#888; word-break:break-all; margin-top:10px;"></p>
         </div>
     </section>
 
     <section id="edu-section">
-        <div class="glass-card" style="text-align: center;">
-            <h2 id="welcome-txt" style="margin:0; color:var(--primary); font-size: 1.5rem;">환영합니다!</h2>
-            <p id="relation-txt" style="margin:10px 0; font-size: 0.95rem; color: #666;"></p>
-            <div class="progress-bar"><div id="progress-fill"></div></div>
-            <div id="status-txt" style="font-weight:bold; font-size: 0.9rem;">진행도: 0 / 5</div>
+        <div style="text-align: center; margin-bottom: 20px;">
+            <h2 id="txt-edu-welcome">보안관님 환영합니다!</h2>
+            <p id="txt-edu-desc">가족이 준비한 5가지 교육을 완료해 주세요.</p>
+            <div style="background:#eee; height:15px; border-radius:10px; overflow:hidden; margin:15px 0;">
+                <div id="progress-fill" style="width:0%; height:100%; background:var(--primary); transition:0.3s;"></div>
+            </div>
+            <p id="txt-progress">진행도: 0 / 5</p>
         </div>
-
         <div id="edu-list"></div>
-
-        <button id="issue-btn" onclick="issueCertificate()">🏆 수료증 PDF 저장하기</button>
+        <button id="issue-btn" class="btn-main" style="display:none; background:var(--accent);" onclick="issueCert()">🏆 수료증 발급 (PDF)</button>
     </section>
 </div>
 
-<div id="cert-template">
-    <div id="cert-title" style="font-size: 3.5rem; color: #b59410; font-weight: bold; margin-bottom: 20px;">수 료 증</div>
-    <div style="font-size: 2.2rem; font-weight: bold; margin-bottom: 30px;">성명: <span id="pdf-name"></span></div>
-    <div id="cert-body" style="font-size: 1.4rem; line-height: 1.8; margin-bottom: 40px; word-break: keep-all; padding: 0 30px;">
-        위 보안관님은 가족이 정성껏 준비한 '우리집 안전 교육' 과정을 성실히 이수하여 각종 사기 범죄로부터 가족의 행복을 지킬 지혜를 갖추었으므로 이 증서를 수여합니다.
-    </div>
-    <div style="background: #fdfae6; padding: 30px; border-radius: 15px; font-size: 1.3rem; color: #444; border: 1px solid #ddd; margin: 0 20px;">
-        " <span id="pdf-msg"></span> "
-    </div>
-    <div style="margin-top: 50px; font-size: 1.2rem; color: #888;">
-        발급일: 2026년 3월 28일<br><br>
-        <b style="font-size: 1.8rem; color: #333;">우리집 안전 보안관 본부</b>
+<div id="cert-wrapper">
+    <div id="cert-template">
+        <div id="pdf-title" style="font-size: 3.5rem; color: #b59410; font-weight: bold; margin-bottom: 20px;">수 료 증</div>
+        <div style="font-size: 2.2rem; font-weight: bold; margin-bottom: 30px;"><span id="pdf-label-name">성명</span>: <span id="pdf-val-name"></span></div>
+        <div id="pdf-body" style="font-size: 1.5rem; line-height: 1.8; margin-bottom: 40px; word-break: keep-all; padding: 0 40px;">
+            위 보안관님은 가족이 정성껏 준비한 사기 예방 교육을 모두 이수하였으므로 이 증서를 수여합니다.
+        </div>
+        <div style="background: #fdfae6; padding: 30px; border-radius: 20px; font-size: 1.4rem; color: #444; font-style: italic; border: 1px solid #eee; margin: 0 40px;">
+            " <span id="pdf-val-msg"></span> "
+        </div>
+        <div style="margin-top: 50px; font-size: 1.2rem; color: #888;">
+            <span id="pdf-date-label">발급일</span>: 2026. 03. 29<br><br>
+            <b id="pdf-footer" style="font-size: 1.6rem; color: #333;">우리집 안전 보안관 본부</b>
+        </div>
     </div>
 </div>
 
 <script>
-    // 2026년 최신 데이터 반영
-    const educationData = [
-        { id: 1, tag: "로맨스 사기", title: "가짜 사랑으로 돈을 요구하는 '로맨스 스캠' 실제 사례", url: "https://www.youtube.com/results?search_query=로맨스스캠+사례" },
-        { id: 2, tag: "보이스피싱", title: "검찰·금융기관 사칭 전화를 받았을 때 대처법", url: "https://v.daum.net/v/20260328153012" },
-        { id: 3, tag: "스미싱", title: "가족 사칭 '휴대폰 액정 깨졌다' 문자 대응 요령", url: "https://www.youtube.com/results?search_query=자녀사칭+스미싱" },
-        { id: 4, tag: "정책 사기", title: "정부 지원금 문자는 100% 사기입니다 (클릭 금지)", url: "https://www.korea.kr/news/policyNewsView.do?newsId=148924373" },
-        { id: 5, tag: "AI 범죄", title: "목소리까지 똑같은 AI 딥페이크 사기 구별법", url: "https://v.daum.net/v/20260322000123" }
-    ];
+    const langData = {
+        ko: {
+            title: "🛡️ 우리집 안전 보안관", subtitle: "사랑하는 가족을 위한 맞춤 교육",
+            setupH2: "1. 교육 대상 설정", labelTarget: "누구에게 보낼까요?", optParent: "부모님께 (효도 보안관)", optChild: "자녀에게 (청년 보안관)", optSpouse: "배우자에게 (파트너 보안관)",
+            labelName: "받는 분 성함", labelMsg: "사랑의 메시지", btnGenerate: "교육 링크 생성",
+            placeholderName: "성함을 입력하세요", placeholderMsg: "사기 당하지 말고 행복하게 살자!",
+            linkReady: "링크가 준비되었습니다!", btnCopy: "링크 복사 후 카톡 전송",
+            eduWelcome: "보안관님 환영합니다!", eduDesc: "가족이 준비한 5가지 교육을 완료해 주세요.", progress: "진행도",
+            certTitle: "수 료 증", certBody: "위 보안관님은 가족이 정성껏 준비한 사기 예방 교육을 모두 이수하였으므로 이 증서를 수여합니다.",
+            pdfName: "성명", pdfDate: "발급일", pdfFooter: "우리집 안전 보안관 본부",
+            eduBtn: "뉴스 기사 보기", alertLink: "링크가 복사되었습니다!",
+            issueBtn: "🏆 수료증 발급 (PDF)",
+            eduList: [
+                { id: 1, title: "추석 앞두고 로맨스스캠 주의보", url: "https://www.yna.co.kr/view/AKR20240913083200004", date: "2024.09.13" },
+                { id: 2, title: "검찰 사칭 보이스피싱 구별법", url: "https://www.news1.kr/society/incident-accident/5365421", date: "2024.03.28" },
+                { id: 3, title: "지인 사칭 메신저 피싱 수법", url: "https://news.kbs.co.kr/news/pc/view/view.do?ncd=7925612", date: "2024.03.27" },
+                { id: 4, title: "정부 지원금 사칭 문자 주의", url: "https://www.korea.kr/news/policyNewsView.do?newsId=148924373", date: "2024.01.05" },
+                { id: 5, title: "AI 딥페이크 보이스 사기 대응", url: "https://www.hani.co.kr/arti/society/society_general/1133543.html", date: "2024.03.22" }
+            ]
+        },
+        en: {
+            title: "🛡️ Family Safety Sheriff", subtitle: "Customized Education for Your Loved Ones",
+            setupH2: "1. Setup Education Target", labelTarget: "Who is this for?", optParent: "For Parents", optChild: "For Children", optSpouse: "For Spouse",
+            labelName: "Recipient Name", labelMsg: "Message of Love", btnGenerate: "Create Education Link",
+            placeholderName: "Enter name", placeholderMsg: "Stay safe and be happy!",
+            linkReady: "Link is Ready!", btnCopy: "Copy Link & Send",
+            eduWelcome: "Welcome, Sheriff!", eduDesc: "Please complete the 5 safety missions.", progress: "Progress",
+            certTitle: "Certificate", certBody: "This certificate is awarded for successfully completing the family safety education prepared by your family.",
+            pdfName: "Name", pdfDate: "Date", pdfFooter: "Family Safety Sheriff Center",
+            eduBtn: "View News Article", alertLink: "Link copied to clipboard!",
+            issueBtn: "🏆 Issue Certificate (PDF)",
+            eduList: [
+                { id: 1, title: "BBC: How to spot romance scams", url: "https://www.bbc.com/news/uk-england-derbyshire-68233313", date: "2024.02.15" },
+                { id: 2, title: "CNN: Avoid fake call scams", url: "https://edition.cnn.com/2024/01/15/business/scam-calls-avoid-tips/index.html", date: "2024.01.15" },
+                { id: 3, title: "FTC: Avoiding Impersonation Scams", url: "https://consumer.ftc.gov/articles/how-avoid-scam", date: "2024.01.20" },
+                { id: 4, title: "USA.gov: Protect yourself from fraud", url: "https://www.usa.gov/scams-and-fraud", date: "2024.03.10" },
+                { id: 5, title: "BBC: AI Deepfake Voice Scams", url: "https://www.bbc.com/news/technology-68194517", date: "2024.02.05" }
+            ]
+        },
+        zh: {
+            title: "🛡️ 居家安全保安官", subtitle: "为挚爱家人量身定制的安全教育",
+            setupH2: "1. 设置教育对象", labelTarget: "发送给谁？", optParent: "送给父母", optChild: "送给子女", optSpouse: "送给配偶",
+            labelName: "接收人姓名", labelMsg: "爱心寄语", btnGenerate: "生成教育链接",
+            placeholderName: "请输入姓名", placeholderMsg: "愿您远离诈骗，幸福生活！",
+            linkReady: "链接已就绪！", btnCopy: "复制链接并发送",
+            eduWelcome: "欢迎，保安官！", eduDesc: "请完成家人为您准备的5项安全任务。", progress: "进度",
+            certTitle: "结业证书", certBody: "鉴于您圆满完成了家人准备的安全教育课程，特发此证，以资鼓励。",
+            pdfName: "姓名", pdfDate: "签发日期", pdfFooter: "居家安全保安官总部",
+            eduBtn: "查看新闻文章", alertLink: "链接已复制！",
+            issueBtn: "🏆 颁发证书 (PDF)",
+            eduList: [
+                { id: 1, title: "防范“杀猪盘”诈骗提示", url: "http://www.gov.cn/xinwen/2022-04/18/content_5685816.htm", date: "2022.04.18" },
+                { id: 2, title: "公安部发布防范电信诈骗", url: "http://www.gov.cn/xinwen/2021-05/11/content_5605803.htm", date: "2021.05.11" },
+                { id: 3, title: "警惕冒充领导老师诈骗", url: "https://www.chinanews.com.cn/sh/2023/12-25/10134857.shtml", date: "2023.12.25" },
+                { id: 4, title: "网络兼职刷单骗局揭秘", url: "https://news.cctv.com/2024/01/15/ARTI6O2S0iXv6ZJv240115.shtml", date: "2024.01.15" },
+                { id: 5, title: "AI换脸诈骗新手段提醒", url: "https://www.thepaper.cn/newsDetail_forward_23215647", date: "2023.05.25" }
+            ]
+        },
+        ja: {
+            title: "🛡️ 我が家の安全保安官", subtitle: "大切な家族のための防犯教育",
+            setupH2: "1. 教育対象の設定", labelTarget: "誰に送りますか？", optParent: "ご両親へ", optChild: "お子様へ", optSpouse: "配偶者へ",
+            labelName: "お名前", labelMsg: "愛のメッセージ", btnGenerate: "教育リンクを作成",
+            placeholderName: "名前を入力してください", placeholderMsg: "詐欺に遭わず、幸せに暮らそう！",
+            linkReady: "リンク가 준비되었습니다!", btnCopy: "コピーして送信",
+            eduWelcome: "ようこそ、保安官様！", eduDesc: "家族이を用意した5つの教育を完了してください。", progress: "進捗",
+            certTitle: "修了証", certBody: "あなたは家族이用意한防犯教育課程을誠実に修了したため、本証을授与します。",
+            pdfName: "氏名", pdfDate: "発行日", pdfFooter: "我が家の安全保安官本部",
+            eduBtn: "ニュース記事を見る", alertLink: "リンクをコピーしました！",
+            issueBtn: "🏆 修了証を発行 (PDF)",
+            eduList: [
+                { id: 1, title: "NHK: ロマンス詐欺の現状と対策", url: "https://www3.nhk.or.jp/news/html/20240214/k10014358211000.html", date: "2024.02.14" },
+                { id: 2, title: "警察庁：特殊詐欺を防ぐ", url: "https://www.npa.go.jp/bureau/safetylife/sos47/index.html", date: "2024.03.20" },
+                { id: 3, title: "政府広報：身内を騙る詐欺に注意", url: "https://www.gov-online.go.jp/featured/202401/tokushu_sagi.html", date: "2024.01.10" },
+                { id: 4, title: "東京都：不審なSMSのURLに注意", url: "https://www.shouhiseikatu.metro.tokyo.jp/sodan/kinkyu/20240115.html", date: "2024.01.15" },
+                { id: 5, title: "NHK: AI悪用詐欺への警戒喚起", url: "https://www3.nhk.or.jp/news/html/20240228/k10014373451000.html", date: "2024.02.28" }
+            ]
+        }
+    };
 
-    function generateEduLink() {
+    let currentLang = 'ko';
+
+    function changeLang(lang) {
+        currentLang = lang;
+        document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+        const activeBtn = document.getElementById(`btn-${lang}`);
+        if(activeBtn) activeBtn.classList.add('active');
+
+        const d = langData[lang];
+        document.getElementById('txt-title').innerText = d.title;
+        document.getElementById('txt-subtitle').innerText = d.subtitle;
+        document.getElementById('txt-setup-h2').innerText = d.setupH2;
+        document.getElementById('txt-label-target').innerText = d.labelTarget;
+        document.getElementById('txt-opt-parent').innerText = d.optParent;
+        document.getElementById('txt-opt-child').innerText = d.optChild;
+        document.getElementById('txt-opt-spouse').innerText = d.optSpouse;
+        document.getElementById('txt-label-name').innerText = d.labelName;
+        document.getElementById('p_name').placeholder = d.placeholderName;
+        document.getElementById('txt-label-msg').innerText = d.labelMsg;
+        document.getElementById('p_msg').placeholder = d.placeholderMsg;
+        document.getElementById('txt-btn-generate').innerText = d.btnGenerate;
+        document.getElementById('txt-link-ready').innerText = d.linkReady;
+        document.getElementById('txt-btn-copy').innerText = d.btnCopy;
+        document.getElementById('txt-edu-welcome').innerText = d.eduWelcome;
+        document.getElementById('txt-edu-desc').innerText = d.eduDesc;
+        document.getElementById('issue-btn').innerText = d.issueBtn;
+
+        document.getElementById('pdf-title').innerText = d.certTitle;
+        document.getElementById('pdf-body').innerText = d.certBody;
+        document.getElementById('pdf-label-name').innerText = d.pdfName;
+        document.getElementById('pdf-date-label').innerText = d.pdfDate;
+        document.getElementById('pdf-footer').innerText = d.pdfFooter;
+
+        if(document.getElementById('edu-section').style.display === 'block') {
+            renderList();
+        }
+    }
+
+    function generateLink() {
         const target = document.getElementById('target_type').value;
         const name = document.getElementById('p_name').value;
         const msg = document.getElementById('p_msg').value;
-        if(!name || !msg) return alert("성함과 메시지를 입력해 주세요.");
+        if(!name || !msg) return alert(currentLang === 'ko' ? "내용을 모두 입력해주세요." : "Please fill in all fields.");
 
-        const baseUrl = window.location.href.split('?')[0];
-        const params = new URLSearchParams({ target, name, msg });
-        const finalUrl = `${baseUrl}?${params.toString()}`;
-
-        document.getElementById('final-url').innerText = finalUrl;
+        const url = `${window.location.href.split('?')[0]}?lang=${currentLang}&target=${target}&name=${encodeURIComponent(name)}&msg=${encodeURIComponent(msg)}`;
+        document.getElementById('final-url').innerText = url;
         document.getElementById('link-display').style.display = 'block';
-        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
     }
 
-    function copyLink() {
-        const urlText = document.getElementById('final-url').innerText;
-        if (navigator.share) {
-            navigator.share({ title: '안전 보안관 교육', text: '부모님, 자녀가 준비한 안전 교육입니다.', url: urlText });
-        } else {
-            navigator.clipboard.writeText(urlText).then(() => alert("링크가 복사되었습니다."));
-        }
+    function copyUrl() {
+        navigator.clipboard.writeText(document.getElementById('final-url').innerText);
+        alert(langData[currentLang].alertLink);
     }
 
-    function init() {
-        const params = new URLSearchParams(window.location.search);
-        const target = params.get('target');
-        const name = params.get('name');
-        const msg = params.get('msg');
-
-        if(name && msg) {
-            document.getElementById('setup-section').style.display = 'none';
-            document.getElementById('edu-section').style.display = 'block';
-            document.getElementById('welcome-txt').innerText = `${name} 보안관님!`;
-            
-            let relation = "가족이 준비한 안전 교육입니다.";
-            if(target === 'child') relation = "부모님이 너를 위해 준비한 안전 임무야!";
-            if(target === 'spouse') relation = "우리 가족의 행복을 위해 함께 배워봐요.";
-            document.getElementById('relation-txt').innerText = relation;
-            
-            renderEduList();
-        }
-    }
-
-    function renderEduList() {
+    function renderList() {
         const list = document.getElementById('edu-list');
         list.innerHTML = '';
-        educationData.forEach(item => {
-            const isDone = localStorage.getItem(`edu_done_${item.id}`);
-            const card = document.createElement('div');
-            card.className = `edu-card ${isDone ? 'done' : ''}`;
-            card.innerHTML = `
-                <span class="tag">${item.tag}</span>
-                <span class="card-title">${item.title}</span>
-                <a href="${item.url}" target="_blank" class="edu-btn" onclick="completeStep(${item.id})">
-                    ${isDone ? '다시 공부하기' : '교육 내용 확인'}
-                </a>
+        const d = langData[currentLang];
+        d.eduList.forEach((item) => {
+            const isDone = localStorage.getItem(`done_${item.id}`);
+            const div = document.createElement('div');
+            div.className = `edu-card ${isDone ? 'done' : ''}`;
+            div.innerHTML = `
+                <div class="edu-date">${item.date}</div>
+                <span style="font-weight:bold;">${item.title}</span>
+                <a href="${item.url}" target="_blank" class="edu-btn" onclick="done(${item.id})">${d.eduBtn}</a>
             `;
-            list.appendChild(card);
+            list.appendChild(div);
         });
         updateStatus();
     }
 
-    function completeStep(id) {
-        localStorage.setItem(`edu_done_${id}`, 'true');
-        setTimeout(() => renderEduList(), 1000);
+    function done(id) {
+        localStorage.setItem(`done_${id}`, 'true');
+        setTimeout(renderList, 1000);
     }
 
     function updateStatus() {
         let count = 0;
-        educationData.forEach(item => { if(localStorage.getItem(`edu_done_${item.id}`)) count++; });
-        const percent = (count / educationData.length) * 100;
-        document.getElementById('progress-fill').style.width = percent + '%';
-        document.getElementById('status-txt').innerText = `진행도: ${count} / 5`;
+        const d = langData[currentLang];
+        d.eduList.forEach(i => { if(localStorage.getItem(`done_${i.id}`)) count++; });
+        document.getElementById('progress-fill').style.width = (count/5*100) + '%';
+        document.getElementById('txt-progress').innerText = `${d.progress}: ${count} / 5`;
         if(count >= 5) document.getElementById('issue-btn').style.display = 'block';
     }
 
-    async function issueCertificate() {
+    async function issueCert() {
         const params = new URLSearchParams(window.location.search);
-        const name = params.get('name');
-        const msg = params.get('msg');
-
-        document.getElementById('pdf-name').innerText = name;
-        document.getElementById('pdf-msg').innerText = msg;
-
+        document.getElementById('pdf-val-name').innerText = params.get('name');
+        document.getElementById('pdf-val-msg').innerText = params.get('msg');
+        
         const template = document.getElementById('cert-template');
-        template.style.display = 'block';
-
-        try {
-            const canvas = await html2canvas(template, { scale: 2 });
-            const imgData = canvas.toDataURL('image/png');
-            const { jsPDF } = window.jspdf;
-            const pdf = new jsPDF('p', 'mm', 'a4');
-            const pdfWidth = pdf.internal.pageSize.getWidth();
-            const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
-            pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-            pdf.save(`${name}_안전보안관_수료증.pdf`);
-            alert("수료증이 성공적으로 발급되었습니다!");
-        } catch (e) {
-            alert("PDF 생성 중 문제가 발생했습니다.");
-        } finally {
-            template.style.display = 'none';
-        }
+        const canvas = await html2canvas(template, { scale: 2 });
+        const imgData = canvas.toDataURL('image/png');
+        const pdf = new jspdf.jsPDF('p', 'mm', 'a4');
+        pdf.addImage(imgData, 'PNG', 0, 0, 210, 297);
+        pdf.save(`${params.get('name')}_Certificate.pdf`);
     }
 
-    window.onload = init;
+    // 초기화 및 이수 내역 초기화 로직
+    window.onload = () => {
+        const params = new URLSearchParams(window.location.search);
+        if(params.get('name')) {
+            // 새 세션인 경우(새로고침이 아닌 경우) 기존 이수 내역 초기화
+            if (!sessionStorage.getItem('session_active')) {
+                [1,2,3,4,5].forEach(id => localStorage.removeItem(`done_${id}`));
+                sessionStorage.setItem('session_active', 'true');
+            }
+
+            const lang = params.get('lang') || 'ko';
+            changeLang(lang);
+            document.getElementById('setup-section').style.display = 'none';
+            document.getElementById('edu-section').style.display = 'block';
+            renderList();
+        }
+    };
 </script>
-<script src="main.js"></script>
 </body>
 </html>
