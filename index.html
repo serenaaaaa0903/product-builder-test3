@@ -102,7 +102,24 @@
         }
         .edu-card.done { border-left-color: var(--primary); background: #f0fdf4 !important; border-color: #bbf7d0; transform: translateY(-5px); }
         
-        /* [상장 모달 모바일 최적화] */
+        .edu-date { font-size: 0.85rem; color: #718096; margin-bottom: 8px; font-weight: 600; }
+        .edu-btn { 
+            display: block; margin-top: 18px; padding: 16px; background: #2d3748; color: white; 
+            text-align: center; text-decoration: none; border-radius: 14px; font-weight: 600; 
+            border: none; width: 100%; cursor: pointer; transition: 0.3s;
+        }
+        .done .edu-btn { background: var(--primary); }
+
+        .quiz-container { margin-top: 15px; text-align: left; }
+        .quiz-option { 
+            display: block; width: 100%; padding: 12px; margin-bottom: 8px; 
+            border: 1px solid #e2e8f0; border-radius: 10px; background: white;
+            cursor: pointer; transition: 0.2s; font-size: 0.9rem; text-align: left;
+        }
+        .quiz-option:hover { background: #f1f5f9; border-color: #cbd5e0; }
+        .quiz-option.correct { background: #dcfce7 !important; border-color: #22c55e !important; }
+        .quiz-option.wrong { background: #fee2e2 !important; border-color: #ef4444 !important; }
+
         #cert-modal {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.85); z-index: 1000; justify-content: center; align-items: center; padding: 10px;
@@ -119,7 +136,7 @@
         @keyframes modalUp { from { transform: translateY(80px) scale(0.9); opacity: 0; } to { transform: translateY(0) scale(1); opacity: 1; } }
         
         .cert-title { font-size: 2.2rem; color: #b8860b; font-weight: 800; margin-bottom: 20px; letter-spacing: 4px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
-        .cert-name { font-size: 1.4rem; font-weight: 700; margin-bottom: 25px; border-bottom: 3px solid #b8860b; display: inline-block; padding: 0 20px; color: #1a202c; }
+        .cert-name { font-size: 1.4rem; font-weight: 700; margin-bottom: 25px; border-bottom: 2px solid #b8860b; display: inline-block; padding: 0 20px; color: #1a202c; }
         .cert-body { font-size: 1rem; line-height: 1.8; margin-bottom: 30px; word-break: keep-all; color: #4a5568; }
         .cert-msg { background: #fffaf0; padding: 15px; border-radius: 12px; border: 1px solid #feebc8; margin-bottom: 30px; font-style: italic; color: #744210; font-weight: 500; font-size: 0.95rem; }
         .cert-footer { font-size: 1.2rem; font-weight: 800; color: #2d3748; }
@@ -233,11 +250,14 @@
             eduBtn: "내용 확인하기", alertLink: "링크가 복사되었습니다!",
             previewBtn: "👀 수료증 미리보기",
             issueBtn: "🏆 교육 이수 상장 확인",
-            trendConfirm: "분석 내용 확인 완료",
+            trendConfirm: "확인 완료",
             readAloud: "🔊 분석 내용 읽어주기",
             ttsLang: "ko-KR",
             btnSave: "이미지 저장", btnClose: "닫기",
-            setupPreview: "메시지 미리보기"
+            setupPreview: "메시지 미리보기",
+            quizCorrect: "정답입니다! 보안관님, 훌륭해요.",
+            quizWrong: "틀렸습니다. 다시 한번 생각해보세요!",
+            solveBtn: "정답 확인"
         },
         en: {
             title: "🛡️ Family Safety Sheriff", subtitle: "Customized Education for Your Loved Ones",
@@ -260,7 +280,10 @@
             readAloud: "🔊 Read Aloud",
             ttsLang: "en-US",
             btnSave: "Save Image", btnClose: "Close",
-            setupPreview: "Message Preview"
+            setupPreview: "Message Preview",
+            quizCorrect: "Correct! You are a great sheriff.",
+            quizWrong: "Wrong answer. Please try again!",
+            solveBtn: "Check Answer"
         },
         ja: {
             title: "🛡️ 我が家の安全保安官", subtitle: "大切な家族のための防범 education",
@@ -270,10 +293,10 @@
             linkReady: "링크가 준비되었습니다!", btnCopy: "コピーして送信",
             linkInstruct: "링크를 클릭한 후, 생성된 URL을 이메일 등으로 전송해 주세요.",
             eduWelcome: "安全保安官様, ようこそ!", 
-            eduDesc: "本教育は毎月の新型詐欺トレンド를分析し, 교육을 목적으로 하고 있습니다. 以下の교육을 완료해 주세요.", 
+            eduDesc: "本교육은 매달 신종사기 트랜드를 분석하고 교육을 목적으로 하고 있습니다. 以下の교육을 완료해 주세요.", 
             progress: "進捗",
             certTitle: "修 了 証", 
-            certBody: "上記の安全保安官は, 家族가丹精込めて準備した防犯教育課程을誠実に修了したため, 本証을授与します.",
+            certBody: "上記の安全保安官은, 家族가丹精込めて準備した防犯教育課程을誠実に修了したため, 本証을授与します.",
             certFooter: "我が家の安全保安官本部",
             certSuffix: "安全保安官様",
             eduBtn: "内容を見る", alertLink: "링크를 복사했습니다!",
@@ -283,24 +306,27 @@
             readAloud: "🔊 内容を読み上げる",
             ttsLang: "ja-JP",
             btnSave: "画像を保存", btnClose: "閉じる",
-            setupPreview: "メッセージプレビュー"
+            setupPreview: "メッセージプレビュー",
+            quizCorrect: "正解です！保安官様、素晴らしいです。",
+            quizWrong: "不正解です。もう一度考えてみましょう！",
+            solveBtn: "正解を確認"
         }
     };
 
     const eduDataPerLang = {
         ko: [
             { id: 1, title: "[분석] 2026년 대한민국 사기 트렌드 요약", content: "2026년 한국의 사기 트렌드는 '초정밀 하이브리드화'입니다. AI 딥페이크로 목소리와 얼굴을 똑같이 흉내 낸 가족 사칭 사기가 주를 이룹니다. 특히 '로맨스 스캠'과 '투자 사기'가 결합되어 피해자의 심리와 자산을 동시에 공략하는 정교한 수법이 기승을 부리고 있으니 각별한 주의가 필요합니다. 모르는 링크나 과도한 수익 약속은 무조건 의심하십시오.", date: "2026.01.01" },
-            { id: 2, title: "[유튜브] 2026년형 보이스피싱 신종 수법과 돈 돌려받는 법", url: "https://www.youtube.com/results?search_query=2026년+보이스피싱+신종수법", date: "2026.01.10" },
+            { id: 2, title: "[퀴즈] 보이스피싱 의심 상황 퀴즈", quiz: { question: "낯선 사람이 SNS로 접근해 친분을 쌓은 뒤, 고수익 가상화폐 투자를 권유한다면?", options: ["새로운 재테크 기회이므로 즉시 가입한다.", "로맨스 스캠 결합 사기이므로 차단하고 신고한다."], answer: 1 }, date: "2026.01.10" },
             { id: 3, title: "[유튜브] [속보] 법무부, '120억 로맨스 스캠 부부' 송환 요청", url: "https://www.youtube.com/results?search_query=120억+로맨스+스캠+부부+송환", date: "2024.03.15" }
         ],
         en: [
-            { id: 1, title: "[Analysis] 2026 Global Fraud Trends", content: "The 2026 fraud landscape is dominated by AI-driven technologies. 'Voice Cloning' allows scammers to replicate voices with seconds of audio, while 'Deepfake FaceTime' makes impersonation incredibly convincing. Celebrity-impersonated Love Scams and fake investment portals are also at an all-time high. Never share codes or personal data.", date: "2026.01.01" },
-            { id: 2, title: "[YouTube] THESE 5 Scams Are EXPLODING in 2026", url: "https://www.youtube.com/results?search_query=Rossen+Reports+Scams+2026", date: "2026.01.05" },
+            { id: 1, title: "[Analysis] 2026 Global Fraud Trends", content: "The 2026 fraud landscape is dominated by AI-driven technologies. 'Voice Cloning' allows scammers to replicate voices with seconds of audio, while 'Deepfake FaceTime' makes impersonation incredibly convincing. Celebrity-impersonated Love Scams and fake investment portals are also at an all-time high.", date: "2026.01.01" },
+            { id: 2, title: "[Quiz] AI Scam Response Quiz", quiz: { question: "You get a call from your child asking for urgent money. What is the safest first step?", options: ["Send money immediately to help them.", "Hang up and call their known number to verify."], answer: 1 }, date: "2026.01.05" },
             { id: 3, title: "[YouTube] The Call That Sounds Like Your Kid (But Isn't)", url: "https://www.youtube.com/results?search_query=AI+voice+cloning+scam+protection", date: "2025.11.20" }
         ],
         ja: [
             { id: 1, title: "[分析] 2026년 日本の詐欺トレンド", content: "2026年の日本では, SNSを通じた投資勧誘とロマンス詐欺가高度에 융합된 수법이 급증하고 있습니다. 범인은 긴 시간을 들여 신뢰 관계를 쌓고, 교묘한 가짜 투자 플랫폼으로 유도합니다. AI를 이용한 '사칭' 전화에도 주의가 필요합니다.", date: "2026.01.01" },
-            { id: 2, title: "[뉴스] SNS詐欺対策、SIM本人確認義務づけ", url: "https://www.nikkei.com/article/DGXZQOUA123450S4A310C2000000/", date: "2024.03.12" },
+            { id: 2, title: "[クイズ] SNS投資詐欺クイズ", quiz: { question: "SNSで知り合った外国人から『特別な投資情報』を教えると言われたら?", options: ["運命だと信じて振り込む。", "詐欺の可能性が高いので相談・ブロックする。"], answer: 1 }, date: "2024.03.12" },
             { id: 3, title: "[YouTube] あなた에会いに日本に行きます (投資詐欺)", url: "https://www.youtube.com/results?search_query=ロマンス詐欺+2400万円+被害", date: "2024.02.20" }
         ]
     };
@@ -396,6 +422,7 @@
             const isDone = localStorage.getItem(`done_${item.id}`);
             const div = document.createElement('div');
             div.className = `edu-card ${isDone ? 'done' : ''}`;
+            
             if (item.content) { 
                 div.innerHTML = `
                     <div class="edu-date">${item.date}</div>
@@ -403,6 +430,18 @@
                     <button class="btn-tts" onclick="speakText('${item.content.replace(/'/g, "\\'")}')">${d.readAloud}</button>
                     <p style="font-size:0.95rem; color:#444; background:#f8fafc; padding:15px; border-radius:12px; border:1px solid #e2e8f0; margin-bottom:10px;">${item.content}</p>
                     <button class="edu-btn" onclick="done(${item.id})">${isDone ? d.trendConfirm : d.eduBtn}</button>`;
+            } else if (item.quiz) { 
+                let optionsHtml = '';
+                item.quiz.options.forEach((opt, idx) => {
+                    optionsHtml += `<button class="quiz-option ${isDone && idx === item.quiz.answer ? 'correct' : ''}" onclick="checkQuiz(this, ${idx}, ${item.quiz.answer}, ${item.id})">${opt}</button>`;
+                });
+                div.innerHTML = `
+                    <div class="edu-date">${item.date}</div>
+                    <span style="font-weight:bold; display:block; margin-bottom:10px;">${item.title}</span>
+                    <div class="quiz-container">
+                        <p style="font-weight:600; font-size:0.95rem; margin-bottom:15px;">Q. ${item.quiz.question}</p>
+                        ${optionsHtml}
+                    </div>`;
             } else { 
                 div.innerHTML = `
                     <div class="edu-date">${item.date}</div>
@@ -412,6 +451,19 @@
             list.appendChild(div);
         });
         updateStatus();
+    }
+
+    function checkQuiz(btn, selected, correct, id) {
+        if(localStorage.getItem(`done_${id}`)) return;
+        if(selected === correct) {
+            btn.classList.add('correct');
+            alert(langData[currentLang].quizCorrect);
+            done(id);
+        } else {
+            btn.classList.add('wrong');
+            alert(langData[currentLang].quizWrong);
+            setTimeout(() => btn.classList.remove('wrong'), 500);
+        }
     }
 
     function speakText(text) {
@@ -454,31 +506,16 @@
         const content = document.getElementById('cert-content');
         const buttons = document.querySelector('.cert-buttons');
         buttons.style.visibility = 'hidden'; 
-        
         try {
-            const canvas = await html2canvas(content, { 
-                scale: 3, 
-                backgroundColor: "#ffffff",
-                useCORS: true,
-                logging: false
-            });
-            
+            const canvas = await html2canvas(content, { scale: 3, backgroundColor: "#ffffff", useCORS: true });
             canvas.toBlob((blob) => {
                 const url = window.URL.createObjectURL(blob);
                 const link = document.createElement('a');
-                link.href = url;
-                link.download = `Family_Safety_Award_${new Date().getTime()}.png`;
-                document.body.appendChild(link);
+                link.href = url; link.download = `Award.png`;
                 link.click();
-                document.body.removeChild(link);
                 window.URL.revokeObjectURL(url);
-                alert(currentLang === 'ko' ? "이미지가 다운로드되었습니다. 사진첩을 확인해 주세요!" : "Image downloaded. Please check your gallery!");
             }, 'image/png');
-        } catch (e) {
-            alert("Error saving image.");
-        } finally {
-            buttons.style.visibility = 'visible'; 
-        }
+        } catch (e) { alert("Error"); } finally { buttons.style.visibility = 'visible'; }
     }
 
     function closeCert() { document.getElementById('cert-modal').style.display = 'none'; }
@@ -488,7 +525,7 @@
         const params = new URLSearchParams(window.location.search);
         if(params.get('name')) {
             if (!sessionStorage.getItem('session_active')) {
-                [1,2,3,4,5].forEach(id => localStorage.removeItem(`done_${id}`));
+                [1,2,3].forEach(id => localStorage.removeItem(`done_${id}`));
                 sessionStorage.setItem('session_active', 'true');
             }
             changeLang(params.get('lang') || 'ko');
