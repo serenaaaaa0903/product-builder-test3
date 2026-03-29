@@ -76,6 +76,13 @@
         .cert-footer { font-size: 1.2rem; font-weight: bold; color: #222; }
         .cert-date { font-size: 0.9rem; color: #999; margin-top: 10px; }
         .btn-close { margin-top: 20px; padding: 10px 25px; background: #555; color: white; border: none; border-radius: 5px; cursor: pointer; }
+
+        /* [읽어주기 버튼 스타일] */
+        .btn-tts {
+            background: #e0e0e0; color: #333; border: none; padding: 5px 10px; border-radius: 5px;
+            font-size: 0.8rem; cursor: pointer; margin-bottom: 10px; display: flex; align-items: center; gap: 5px;
+        }
+        .btn-tts:hover { background: #d0d0d0; }
     </style>
 </head>
 <body>
@@ -137,7 +144,7 @@
 <div id="cert-modal">
     <div id="cert-content">
         <div class="cert-title" id="cert-ui-title">수 료 증</div>
-        <div class="cert-name"><span id="cert-ui-name"></span> <span id="cert-ui-suffix">보안관</span></div>
+        <div class="cert-name"><span id="cert-ui-name"></span> <span id="cert-ui-suffix"></span></div>
         <div class="cert-body" id="cert-ui-body"></div>
         <div class="cert-msg">" <span id="cert-ui-msg"></span> "</div>
         <div class="cert-footer" id="cert-ui-footer">우리집 안전 보안관 본부</div>
@@ -160,12 +167,14 @@
             certTitle: "수 료 증", 
             certBody: "위 보안관님은 가족이 정성껏 준비한 사기 예방 교육을 모두 이수하였으므로 이 증서를 수여합니다.",
             certFooter: "우리집 안전 보안관 본부",
-            certSuffix: "보안관님",
+            certSuffix: "안전보안관님",
             eduBtn: "내용 확인하기", alertLink: "링크가 복사되었습니다!",
             issueBtn: "🏆 교육 이수 상장 확인",
             trendConfirm: "분석 내용 확인 완료",
+            readAloud: "🔊 분석 내용 읽어주기",
+            ttsLang: "ko-KR",
             eduList: [
-                { id: 1, title: "[분석] 2026년 대한민국 사기 트렌드 요약", content: "2026년 한국의 사기 트렌드는 '초정밀 하이브리드화'입니다. AI 딥페이크로 목소리와 얼굴을 똑같이 흉내 낸 가족 사칭 사기가 주를 이룹니다. 특히 '로맨스 스캠'과 '투자 사기'가 결합되어 피해자의 심리와 자산을 동시에 공략하는 정교한 수법이 기승을 부리고 있습니다.", date: "2026.01.01" },
+                { id: 1, title: "[분석] 2026년 대한민국 사기 트렌드 요약", content: "2026년 한국의 사기 트렌드는 '초정밀 하이브리드화'입니다. AI 딥페이크로 목소리와 얼굴을 똑같이 흉내 낸 가족 사칭 사기가 주를 이룹니다. 특히 '로맨스 스캠'과 '투자 사기'가 결합되어 피해자의 심리와 자산을 동시에 공략하는 정교한 수법이 기승을 부리고 있습니다. 모르는 링크나 과도한 수익 약속은 무조건 의심하십시오.", date: "2026.01.01" },
                 { id: 2, title: "[유튜브] 2026년형 보이스피싱 신종 수법과 돈 돌려받는 법", url: "https://www.youtube.com/results?search_query=2026년+보이스피싱+신종수법", date: "2026.01.10" },
                 { id: 3, title: "[유튜브] [속보] 법무부, '120억 로맨스 스캠 부부' 송환 요청", url: "https://www.youtube.com/results?search_query=120억+로맨스+스캠+부부+송환", date: "2024.03.15" }
             ]
@@ -180,14 +189,16 @@
             eduDesc: "AI Voice Cloning and Deepfake FaceTime scams are major threats in 2026. Please complete these missions.", 
             progress: "Progress",
             certTitle: "CERTIFICATE", 
-            certBody: "This certificate is awarded to the above sheriff for successfully completing the family safety education prepared with love by your family.",
+            certBody: "This certificate is awarded to the above safety sheriff for successfully completing the family safety education prepared with love by your family.",
             certFooter: "Family Safety Sheriff HQ",
-            certSuffix: "Sheriff",
+            certSuffix: "Safety Sheriff",
             eduBtn: "View Content", alertLink: "Link copied to clipboard!",
             issueBtn: "🏆 View Completion Certificate",
             trendConfirm: "Confirmed",
+            readAloud: "🔊 Read Aloud",
+            ttsLang: "en-US",
             eduList: [
-                { id: 1, title: "[Analysis] 2026 Global Fraud Trends", content: "The 2026 fraud landscape is dominated by AI-driven technologies. 'Voice Cloning' allows scammers to replicate voices with seconds of audio, while 'Deepfake FaceTime' makes impersonation incredibly convincing. Celebrity-impersonated Love Scams are also at an all-time high.", date: "2026.01.01" },
+                { id: 1, title: "[Analysis] 2026 Global Fraud Trends", content: "The 2026 fraud landscape is dominated by AI-driven technologies. 'Voice Cloning' allows scammers to replicate voices with seconds of audio, while 'Deepfake FaceTime' makes impersonation incredibly convincing. Celebrity-impersonated Love Scams and fake investment portals are also at an all-time high. Never share codes or personal data.", date: "2026.01.01" },
                 { id: 2, title: "[YouTube] THESE 5 Scams Are EXPLODING in 2026", url: "https://www.youtube.com/results?search_query=Rossen+Reports+Scams+2026", date: "2026.01.05" },
                 { id: 3, title: "[YouTube] The Call That Sounds Like Your Kid (But Isn't)", url: "https://www.youtube.com/results?search_query=AI+voice+cloning+scam+protection", date: "2025.11.20" }
             ]
@@ -195,23 +206,25 @@
         ja: {
             title: "🛡️ 我が家の安全保安官", subtitle: "大切な家族のための防犯 education",
             setupH2: "1. 教育대상 設定", labelTarget: "誰に送りますか？", optParent: "ご両親へ", optChild: "お子様へ", optSpouse: "配偶者へ",
-            labelName: "お名前", labelMsg: "愛のメッセージ", btnGenerate: "教育リンクを作成",
-            placeholderName: "名前を入力してください", placeholderMsg: "詐欺に遭わず、幸せに暮らそう！",
-            linkReady: "リンクが準備されました！", btnCopy: "コピーして送信",
+            labelName: "お名前", labelMsg: "愛のメッセージ", btnGenerate: "教育링크を作成",
+            placeholderName: "名前を入力してください", placeholderMsg: "詐欺에遭わず、幸せ에暮らそう！",
+            linkReady: "링크가 준비되었습니다!", btnCopy: "コピーして送信",
             eduWelcome: "ようこそ、保安官様！", 
             eduDesc: "SNS型投資・ロマンス詐欺が急増しています。資産を守るため、以下の教育を完了してください。", 
             progress: "進捗",
             certTitle: "修 了 証", 
-            certBody: "上記の保安官は、家族が丹精込めて準備した防犯教育課程を誠実に修了したため、本証を授与します。",
+            certBody: "上記の安全保安官は、家族が丹精込めて準備した防犯教育課程を誠実に修了したため、本証を授与します。",
             certFooter: "我が家の安全保安官本部",
-            certSuffix: "保安官様",
+            certSuffix: "安全保安官様",
             eduBtn: "内容を見る", alertLink: "リンクをコピーしました！",
             issueBtn: "🏆 修了証（上状）を確認",
             trendConfirm: "確認済み",
+            readAloud: "🔊 内容を読み上げる",
+            ttsLang: "ja-JP",
             eduList: [
-                { id: 1, title: "[分析] 2026年 日本の詐欺トレンド", content: "2026年の日本では, SNSを通じた投資勧誘とロマンス詐欺が高度に融合した手法가急増しています. 犯人は半年以上の時間をかけて信頼関係を築き, 巧妙な偽の投資プラットフォームへの誘導も確認されています.", date: "2026.01.01" },
+                { id: 1, title: "[分析] 2026年 日本の詐欺トレンド", content: "2026年の日本では, SNSを通じた投資勧誘とロマンス詐欺が高度に融合한手法가急増しています. 犯人は長い時間をかけて信頼関係を築き, 巧妙な偽의投資プラットフォームへの誘導も確認されています. AIを用いた『なりすまし』電話にも注意が必要です.", date: "2026.01.01" },
                 { id: 2, title: "[ニュース] SNS詐欺対策、SIM本人確認義務づけ", url: "https://www.nikkei.com/article/DGXZQOUA123450S4A310C2000000/", date: "2024.03.12" },
-                { id: 3, title: "[YouTube] あなたに会いに日本に行きます (投資詐欺)", url: "https://www.youtube.com/results?search_query=ロマンス詐欺+2400万円+被害", date: "2024.02.20" }
+                { id: 3, title: "[YouTube] あなた에会いに日本に行きます (投資詐欺)", url: "https://www.youtube.com/results?search_query=ロマンス詐欺+2400万円+被害", date: "2024.02.20" }
             ]
         }
     };
@@ -273,6 +286,7 @@
                 div.innerHTML = `
                     <div class="edu-date">${item.date}</div>
                     <span style="font-weight:bold; display:block; margin-bottom:10px;">${item.title}</span>
+                    <button class="btn-tts" onclick="speakText('${item.content.replace(/'/g, "\\'")}')">${d.readAloud}</button>
                     <p style="font-size:0.9rem; color:#444; background:#f9f9f9; padding:12px; border-radius:8px; border:1px solid #eee; margin-bottom:10px;">${item.content}</p>
                     <button class="edu-btn" onclick="done(${item.id})">${isDone ? d.trendConfirm : d.eduBtn}</button>`;
             } else { 
@@ -284,6 +298,13 @@
             list.appendChild(div);
         });
         updateStatus();
+    }
+
+    function speakText(text) {
+        window.speechSynthesis.cancel(); // 기존 재생 중단
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = langData[currentLang].ttsLang;
+        window.speechSynthesis.speak(utterance);
     }
 
     function done(id) {
